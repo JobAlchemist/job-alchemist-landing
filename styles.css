@@ -1,3 +1,8 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -24,6 +29,64 @@ header p {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navbar .logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #3b82f6;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #3b82f6;
+}
+
+.navbar .cta-button {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.navbar .cta-button:hover {
+  background-color: #2563eb;
 }
 
 .signup {
@@ -70,7 +133,7 @@ header p {
 }
 
 
-.features {
+#features {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -104,7 +167,7 @@ header p {
   color: #4b4b4b;
 }
 
-.testimonials {
+#testimonials {
   text-align: center;
   padding: 2rem 1rem;
   background-color: white;
@@ -168,7 +231,7 @@ header p {
   font-weight: bold;
 }
 
-.full-faq-bg {
+#full-faq-bg {
   background-color: #f7f9fb;
   width: 100%;
 }
@@ -227,26 +290,28 @@ header p {
     flex: 1 1 100%;
   }
 }
-.expanded-faq {
+
+
+#expanded-faq {
   max-width: 800px;
   margin: 4rem auto;
   padding: 0 1rem;
   text-align: center;
 }
 
-.expanded-faq h2 {
+#expanded-faq h2 {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
-.expanded-faq .faq-intro {
+#expanded-faq .faq-intro {
   font-size: 1rem;
   color: #666;
   margin-bottom: 2rem;
 }
 
-.expanded-faq details {
+#expanded-faq details {
   background: #f8f9fa;
   border-radius: 8px;
   padding: 1rem 1.25rem;
@@ -257,7 +322,7 @@ header p {
   text-align: left;
 }
 
-.expanded-faq summary {
+#expanded-faq summary {
   font-weight: 600;
   font-size: 1.05rem;
   list-style: none;
@@ -265,22 +330,22 @@ header p {
   padding-right: 20px;
 }
 
-.expanded-faq summary::-webkit-details-marker {
+#expanded-faq summary::-webkit-details-marker {
   display: none;
 }
 
-.expanded-faq summary::after {
+#expanded-faq summary::after {
   content: '▾';
   position: absolute;
   right: 0;
   transition: transform 0.3s ease;
 }
 
-.expanded-faq details[open] summary::after {
+#expanded-faq details[open] summary::after {
   transform: rotate(180deg);
 }
 
-.expanded-faq details p {
+#expanded-faq details p {
   margin-top: 0.75rem;
   font-size: 0.95rem;
   line-height: 1.6;
