@@ -1,6 +1,8 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -8,6 +10,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: white;
   color: #2b2b2b;
+  width: 100%;
   overflow-x: hidden;
 }
 
@@ -47,12 +50,14 @@ header p {
   padding: 1rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  flex-wrap: wrap;
 }
 
 .navbar .logo {
   font-weight: 700;
   font-size: 1.25rem;
   color: #3b82f6;
+  margin-right: auto;
 }
 
 .navbar ul {
@@ -62,6 +67,8 @@ header p {
   margin: 0;
   padding: 0;
   align-items: center;
+  margin-left: auto;
+  flex-wrap: wrap;
 }
 
 .navbar ul li a {
@@ -83,6 +90,7 @@ header p {
   font-weight: 600;
   text-decoration: none;
   transition: background-color 0.3s;
+  white-space: nowrap;
 }
 
 .navbar .cta-button:hover {
@@ -375,4 +383,90 @@ header p {
   font-size: 0.95rem;
   line-height: 1.6;
   color: #444;
+}
+
+footer {
+  background-color: #f7f9fb;
+  padding: 3rem 1.5rem 1rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  align-items: flex-start;
+  padding-bottom: 2rem;
+}
+
+.footer-top .footer-about {
+  flex: 1 1 55%;
+  max-width: 600px;
+}
+
+.footer-top .footer-links {
+  flex: 0 0 20px;
+  text-align: left;
+}
+
+.footer-top h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.footer-top p, .footer-links a {
+  color: #333;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.footer-links a {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #1a1a1a;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom {
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 0.85rem;
+  color: #666;
+  padding-top: 1.5rem;
+}
+
+.footer-bottom span.heart {
+  color: red;
+}
+
+/* Responsive tweak for footer */
+@media (max-width: 768px) {
+  .navbar .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+  .navbar ul {
+    justify-content: center;
+  }
+
+  .footer-top,
+  .footer-bottom {
+    text-align: center;
+    align-items: center;
+  }
+  .footer-links {
+    text-align: center;
+  }
 }
