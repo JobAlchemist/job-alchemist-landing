@@ -117,28 +117,52 @@ header p {
   cursor: pointer;
 }
 
-.sub-heading {
-  text-align: center;
-  width: 100%;
-  padding: 2rem 1rem;
+.sub-heading-section-bg {
   background-color: #f7f9fb;
-  margin-bottom: 2rem;
+  width: 100%;
 }
 
+.sub-heading-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem auto;
+  max-width: 1200px;
+  flex-wrap: wrap;
+  padding: 0 1.5rem;
+
+}
+.sub-heading {
+  flex: 1 1 50%;
+  min-width: 300px;
+}
 .sub-heading p {
   font-size: 1.125rem;
+  flex: 1 1 50%;
+  min-width: 300px;
   line-height: 1.7;
   color: #4b4b4b;
   margin: 0.5rem 0;
 }
 
+.sub-heading-image {
+  flex: 1 1 45%;
+  text-align: center;
+}
+.sub-heading-image img {
+  width: 100%;
+  max-height: 450px;
+  display: block;
+  object-fit: contain;
+}
 
 #features {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  padding: 2rem 1rem;
+  padding: 5rem 1rem;
 }
 
 .feature-box {
