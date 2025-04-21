@@ -72,5 +72,5 @@ function handleSignup(event, emailInput, message) {
 }
 
 // Add event listeners for both buttons
-signupButton1.addEventListener("click", () => handleSignup(emailInput1, message1));
-signupButton2.addEventListener("click", () => handleSignup(emailInput2, message2));
+signupButton1.addEventListener("click", (event) => handleSignup(emailInput1, message1));
+signupButton2.addEventListener("click", (event) => handleSignup(emailInput2, message2));
