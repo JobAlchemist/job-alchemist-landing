@@ -1,226 +1,170 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Mobile menu toggle
-  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  
-  if (mobileMenuToggle && mobileMenu) {
-    mobileMenuToggle.addEventListener('click', function() {
-      mobileMenu.classList.toggle('show');
-      // Update toggle icon
-      if (mobileMenu.classList.contains('show')) {
-        mobileMenuToggle.innerHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        `;
-      } else {
-        mobileMenuToggle.innerHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        `;
-      }
+// Wait for the DOM to be fully loaded before running scripts
+document.addEventListener('DOMContentLoaded', () => {
+
+  // --- Signup Form Elements ---
+  const emailInput1 = document.getElementById("email-input1");
+  const signupButton1 = document.getElementById("signup-button1");
+  const message1 = document.getElementById("signup-message1");
+
+  const emailInput2 = document.getElementById("email-input2");
+  const signupButton2 = document.getElementById("signup-button2");
+  const message2 = document.getElementById("signup-message2");
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // --- Video Modal Elements ---
+  const openModalLink = document.getElementById('play-video-link'); // Link that opens the modal
+  const closeModalBtn = document.getElementById('close-modal-btn'); // Button inside the modal to close it
+  const modal = document.getElementById('video-modal');             // The modal overlay div
+  const videoIframe = modal ? modal.querySelector('iframe') : null; // The iframe holding the video
+  const originalVideoSrc = videoIframe ? videoIframe.src : '';      // Store the original video src
+
+  // --- Function to Handle Signup Logic ---
+  function handleSignup(event, emailInput, message) {
+    const button = event.target; // Get the specific button that was clicked
+    const originalButtonText = button.textContent; // Store the original button text
+    const email = emailInput.value.trim(); // Trim whitespace from email
+
+    // Reset message styling and content before validation
+    message.style.display = "none";
+    message.textContent = "";
+    message.style.color = ""; // Reset color
+
+    // Basic validation
+    if (!email) {
+      // Using the message element instead of alert for consistency
+      message.textContent = "Please enter an email address.";
+      message.style.color = "red";
+      message.style.display = "block";
+      return; // Exit if no email
+    }
+
+    if (!emailRegex.test(email)) {
+      message.textContent = "Please enter a valid email address.";
+      message.style.color = "red";
+      message.style.display = "block";
+      return; // Exit if email is invalid
+    }
+
+    // --- Indicate Processing ---
+    button.disabled = true; // Disable the button
+    button.textContent = "Processing..."; // Change button text
+
+    // --- Fetch Request to Google Apps Script ---
+    fetch("https://script.google.com/macros/s/AKfycbzpHbuR_8vcZVVdwxHGZmRTSRejPexBpn0pOc5MyYO2rN0wAAHl4LBRxEfCFJG1DVhusw/exec", {
+      method: "POST",
+      // Note: 'no-cors' mode prevents reading the response body or status directly in JS.
+      // The Google Script needs to handle the CORS response correctly if you want 'cors' mode.
+      // For simple submission where you don't need a detailed success/error from the script, 'no-cors' is okay.
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      // Encode the email for safe transmission in the URL-encoded body
+      body: `email=${encodeURIComponent(email)}`
+    })
+    .then(() => {
+      // IMPORTANT: With 'no-cors', this .then() block executes if the request could be *sent*,
+      // not necessarily if the server processed it successfully. We assume success here.
+      message.textContent = "🎉 You're on the list! Check your inbox soon.";
+      message.style.color = "green";
+      message.style.display = "block";
+      emailInput.value = ""; // Clear the input field on assumed success
+    })
+    .catch((error) => {
+      // This catches *network* errors (e.g., server unreachable, DNS issues),
+      // not application-level errors from the Google Script (due to 'no-cors').
+      console.error("Signup Fetch Network Error:", error); // Log the network error
+      message.textContent = "Oops! Network error. Please try again later.";
+      message.style.color = "red";
+      message.style.display = "block";
+    })
+    .finally(() => {
+      // --- Reset Button State (runs after .then() or .catch()) ---
+      button.disabled = false; // Re-enable the button
+      button.textContent = originalButtonText; // Restore original text
     });
   }
 
-  // Smooth scrolling for navigation links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      
-      const targetId = this.getAttribute('href').substring(1);
-      if (!targetId) return;
-      
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        // Close mobile menu if it's open
-        if (mobileMenu && mobileMenu.classList.contains('show')) {
-          mobileMenu.classList.remove('show');
-          mobileMenuToggle.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          `;
-        }
-        
-        // Scroll to target
-        window.scrollTo({
-          top: targetElement.offsetTop - 80, // Account for fixed header
-          behavior: 'smooth'
-        });
+  // --- Video Modal Functions ---
+  function openModal(event) {
+    // Prevent the default link behavior (e.g., navigating to '#')
+    if(event) event.preventDefault();
+
+    if (modal && videoIframe) {
+      // Ensure the video source is set correctly before showing, especially if it was cleared on close
+      if (videoIframe.src !== originalVideoSrc && originalVideoSrc) {
+          videoIframe.src = originalVideoSrc;
+      }
+      modal.style.display = 'flex'; // Use flex to enable centering defined in CSS
+      // Use a tiny timeout to allow the 'display' change to render before starting the transition
+      setTimeout(() => {
+          modal.classList.add('active'); // Add class to trigger opacity/transform transitions
+      }, 10);
+    } else {
+      console.error("Modal container or video iframe element not found!");
+    }
+  }
+
+  function closeModal() {
+    if (modal && videoIframe) {
+      modal.classList.remove('active'); // Remove class to trigger fade-out transition
+      // Wait for the fade-out transition to finish before hiding and stopping the video
+      setTimeout(() => {
+          modal.style.display = 'none'; // Hide the modal completely
+          // Stop the video playback by removing the src attribute (most reliable method)
+          videoIframe.src = '';
+          // Note: We restore the src in openModal to avoid unnecessary loading if the modal isn't opened again.
+      }, 300); // This duration should match the transition duration in your CSS (e.g., 0.3s)
+    }
+  }
+
+  // --- Add Event Listeners ---
+
+  // Signup Button Listeners
+  if (signupButton1 && emailInput1 && message1) {
+    signupButton1.addEventListener("click", (event) => handleSignup(event, emailInput1, message1));
+  } else {
+    console.warn("Signup form 1 elements not found.");
+  }
+
+  if (signupButton2 && emailInput2 && message2) {
+    signupButton2.addEventListener("click", (event) => handleSignup(event, emailInput2, message2));
+  } else {
+    console.warn("Signup form 2 elements not found.");
+  }
+
+  // Video Modal Listeners
+  if (openModalLink) {
+    openModalLink.addEventListener('click', openModal);
+  } else {
+    console.warn("Video trigger link ('play-video-link') not found.");
+  }
+
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', closeModal);
+  } else {
+    console.warn("Modal close button ('close-modal-btn') not found.");
+  }
+
+  // Listener to close modal when clicking on the overlay background
+  if (modal) {
+    modal.addEventListener('click', (event) => {
+      // Check if the click is directly on the modal overlay itself (the dark background)
+      if (event.target === modal) {
+        closeModal();
       }
     });
+  } else {
+     console.warn("Modal container ('video-modal') not found for background click listener.");
+  }
+
+  // Listener to close modal with the Escape key
+  document.addEventListener('keydown', (event) => {
+      // Check if the modal exists, is currently active (visible), and the Escape key was pressed
+      if (event.key === 'Escape' && modal && modal.classList.contains('active')) {
+          closeModal();
+      }
   });
 
-  // Helper function to scroll to a section
-  window.scrollToSection = function(id) {
-    const element = document.getElementById(id);
-    if (element) {
-      window.scrollTo({
-        top: element.offsetTop - 80,
-        behavior: 'smooth'
-      });
-      
-      // Close mobile menu if it's open
-      if (mobileMenu && mobileMenu.classList.contains('show')) {
-        mobileMenu.classList.remove('show');
-      }
-    }
-  };
-
-  // Form validation and submission
-  const validateEmail = (email) => {
-    return String(email)
-      .toLowerCase()
-      .match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      );
-  };
-
-  // Handle form submissions
-  const handleFormSubmit = (formId, inputId, errorId) => {
-    const form = document.getElementById(formId);
-    const input = document.getElementById(inputId);
-    const errorElement = document.getElementById(errorId);
-    
-    if (form && input && errorElement) {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Clear previous error
-        errorElement.textContent = '';
-        
-        const email = input.value.trim();
-        
-        if (!email) {
-          errorElement.textContent = 'Please enter your email address';
-          return;
-        }
-        
-        if (!validateEmail(email)) {
-          errorElement.textContent = 'Please enter a valid email address';
-          return;
-        }
-        
-        // Show loading state
-        const submitButton = form.querySelector('button[type="submit"]');
-        const originalButtonText = submitButton.textContent;
-        submitButton.innerHTML = `
-          <span class="loading">
-            <svg class="loading-spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10" stroke-width="4" stroke-dasharray="15 85" stroke-dashoffset="0">
-                <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="1s" repeatCount="indefinite" />
-              </circle>
-            </svg>
-            Submitting...
-          </span>
-        `;
-        
-        // Simulate API call
-        setTimeout(() => {
-          // Create success message
-          const successMessage = document.createElement('div');
-          successMessage.className = 'success-message show';
-          successMessage.textContent = 'Thanks for joining! Check your email for confirmation.';
-          
-          // Replace form with success message
-          form.parentNode.replaceChild(successMessage, form);
-          
-          // Track submission in localStorage to show success message on page refresh
-          localStorage.setItem('emailSubmitted', 'true');
-          localStorage.setItem('submittedEmail', email);
-        }, 1500);
-      });
-    }
-  };
-
-  // Initialize form handlers
-  handleFormSubmit('hero-form', 'hero-email', 'hero-error');
-  handleFormSubmit('cta-form', 'cta-email', 'cta-error');
-  
-  // Check if forms were already submitted (for page refresh)
-  if (localStorage.getItem('emailSubmitted') === 'true') {
-    const heroForm = document.getElementById('hero-form');
-    const ctaForm = document.getElementById('cta-form');
-    
-    if (heroForm) {
-      const successMessage = document.createElement('div');
-      successMessage.className = 'success-message show';
-      successMessage.textContent = 'Thanks for joining! Check your email for confirmation.';
-      heroForm.parentNode.replaceChild(successMessage, heroForm);
-    }
-    
-    if (ctaForm) {
-      const successMessage = document.createElement('div');
-      successMessage.className = 'success-message show';
-      successMessage.textContent = 'Thanks for joining! Check your email for confirmation.';
-      ctaForm.parentNode.replaceChild(successMessage, ctaForm);
-    }
-  }
-
-  // FAQ Accordion
-  const accordionButtons = document.querySelectorAll('.accordion-button');
-  
-  accordionButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const accordionItem = button.parentElement;
-      
-      // Toggle current item
-      accordionItem.classList.toggle('active');
-      
-      // Close other items (optional)
-      // document.querySelectorAll('.accordion-item').forEach(item => {
-      //   if (item !== accordionItem) {
-      //     item.classList.remove('active');
-      //   }
-      // });
-    });
-  });
-
-  // Animate counter
-  const counterElement = document.getElementById('counter');
-  if (counterElement) {
-    const finalCount = 157;
-    let count = 0;
-    
-    const animateCounter = () => {
-      if (count < finalCount) {
-        const increment = Math.ceil((finalCount - count) / 10);
-        count += increment;
-        
-        if (count > finalCount) {
-          count = finalCount;
-        }
-        
-        counterElement.textContent = count + '+';
-        
-        requestAnimationFrame(() => {
-          setTimeout(animateCounter, 50);
-        });
-      }
-    };
-    
-    // Start counter animation when element is in viewport
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCounter();
-          observer.unobserve(entry.target);
-        }
-      });
-    });
-    
-    observer.observe(counterElement);
-  }
-
-  // Update copyright year
-  const yearElement = document.getElementById('current-year');
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
-});
+}); // End DOMContentLoaded listener
