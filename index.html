@@ -14,11 +14,18 @@
     })
 </script>
 </head>
-<body>
+<body id="top">
   <nav class="navbar">
     <div class = "container">
-      <div class="logo">JobAlchemist</div>
-      <ul>
+      <a href="#top" class="logo" aria-label="JobAlchemist home">
+        <img src="site-assests/email_logo.png" alt="JobAlchemist logo">
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu">
         <li><a href="#features">Features</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#expanded-faq">FAQ</a></li>
@@ -61,8 +68,8 @@
     </div>
     <div class="feature-box">
       <i class="bi-file-earmark-text"></i>
-      <h3>Get Your Application Past the Gatekeepers </h3>
-      <p>Craft tailored CVs and cover letters that speak directly to hiring managers’ needs. Stand out with applications designed to be noticed.</p>
+      <h3>Present Your Strongest Application</h3>
+      <p>Shape every CV and cover letter around what hiring managers truly look for, even the unspoken criteria, so your unique strengths feel like the obvious fit.</p>
     </div>
     <div class="feature-box">
       <i class="bi-chat-square-text"></i>
@@ -196,7 +203,9 @@
 <footer>
   <div class="footer-top">
     <div class="footer-about">
-      <h4><strong>JobAlchemist</strong></h4>
+      <div class="footer-logo">
+        <img src="site-assests/email_logo.png" alt="JobAlchemist logo">
+      </div>
       <p>Your AI-powered career assistant that helps you stand out in today’s competitive job market.<br>
       From analysing jobs to negotiating offers, we're with you every step of the way.</p>
     </div>

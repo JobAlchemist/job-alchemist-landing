@@ -41,6 +41,7 @@ header p {
   top: 0;
   z-index: 1000;
   width: 100%;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .navbar .container {
@@ -58,9 +59,44 @@ header p {
   font-size: 1.25rem;
   color: #3b82f6;
   margin-right: auto;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
 }
 
-.navbar ul {
+.navbar .logo img {
+  height: 45px;
+  width: auto;
+  display: block;
+}
+
+.footer-logo img {
+  height: 45px;
+  width: auto;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-left: 1rem;
+}
+
+.nav-toggle span {
+  width: 22px;
+  height: 2px;
+  background-color: #1a1a1a;
+  display: block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-menu {
   list-style: none;
   display: flex;
   gap: 1.5rem;
@@ -71,14 +107,14 @@ header p {
   flex-wrap: wrap;
 }
 
-.navbar ul li a {
+.nav-menu li a {
   text-decoration: none;
   color: #1a1a1a;
   font-weight: 500;
   transition: color 0.3s;
 }
 
-.navbar ul li a:hover {
+.nav-menu li a:hover {
   color: #3b82f6;
 }
 
@@ -102,8 +138,8 @@ header p {
   justify-content: center;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 3rem;
-  margin-top: 3rem;
+  margin-bottom: 2rem;
+  margin-top: 1.5rem;
 }
 
 .signup input {
@@ -135,10 +171,10 @@ header p {
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  margin: 1rem auto;
+  margin: 0 auto 2rem;
   max-width: 1200px;
   flex-wrap: wrap;
-  padding: 0 1.5rem;
+  padding: 1.5rem 1.5rem 2rem;
 
 }
 .sub-heading {
@@ -452,13 +488,36 @@ footer {
 /* Responsive tweak for footer */
 @media (max-width: 768px) {
   .navbar .container {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 0.5rem;
+  }
+  .nav-toggle {
+    display: inline-flex;
+    margin-left: auto;
+  }
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 1rem 0;
     flex-direction: column;
     align-items: center;
-    text-align: center;
     gap: 1rem;
+    text-align: center;
+    margin-left: 0;
+    display: none;
   }
-  .navbar ul {
-    justify-content: center;
+  .nav-menu.active {
+    display: flex;
+  }
+  .navbar .cta-button {
+    display: inline-block;
+    margin-top: 0.5rem;
   }
 
   .footer-top,

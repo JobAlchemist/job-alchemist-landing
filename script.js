@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('video-modal');             // The modal overlay div
   const videoIframe = modal ? modal.querySelector('iframe') : null; // The iframe holding the video
   const originalVideoSrc = videoIframe ? videoIframe.src : '';      // Store the original video src
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.querySelector('.nav-menu');
 
   // --- Function to Handle Signup Logic ---
   function handleSignup(event, emailInput, message) {
@@ -166,5 +168,21 @@ document.addEventListener('DOMContentLoaded', () => {
           closeModal();
       }
   });
+
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', (!expanded).toString());
+      navMenu.classList.toggle('active');
+    });
+    navMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  } else {
+    console.warn("Navigation toggle/menu not found.");
+  }
 
 }); // End DOMContentLoaded listener
