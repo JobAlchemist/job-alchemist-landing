@@ -71,13 +71,14 @@ The main color scheme is defined in the `:root` section of `styles.css`. You can
 
 ```css
 :root {
-  --primary: hsl(217, 91%, 60%);
-  --primary-light: hsl(217, 91%, 70%);
-  --primary-dark: hsl(217, 91%, 50%);
-  --secondary: hsl(217, 91%, 45%);
+  --primary: hsl(217, 91%, 60%);       /* #3b82f6 */
+  --primary-light: hsl(212, 96%, 78%); /* #93c5fd */
+  --primary-dark: hsl(226, 71%, 40%);  /* #1e40af */
+  --secondary: hsl(221, 83%, 53%);     /* #2563eb */
   /* other variables */
 }
 ```
+--secondary to be the deep heading color instead, use hsl(224, 64%, 33%) (#1e3a8a)
 
 ### Content
 
