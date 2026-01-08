@@ -19,6 +19,7 @@
   --overlay: rgba(0, 0, 0, 0.75);
   --video-bg: #000;
   --on-primary: #fff;
+  --section-pad: 1.5rem;
 }
 
 html {
@@ -63,8 +64,8 @@ header p {
 }
 
 .proof-section {
-  padding: 1rem 1rem 2.25rem;
-  background-color: var(--bg);
+  padding: var(--section-pad) 1rem;
+  background-color: var(--surface);
 }
 
 .proof-inner {
@@ -348,7 +349,18 @@ header p {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  padding: 4rem 1rem;
+  padding: var(--section-pad) 1rem;
+  background-color: var(--bg);
+}
+
+.features-heading {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.features-heading h2 {
+  margin: 0;
 }
 
 .feature-box {
@@ -385,7 +397,7 @@ header p {
 
 .pricing-section {
   background-color: var(--surface);
-  padding: 3.5rem 1rem;
+  padding: var(--section-pad) 1rem;
 }
 
 .pricing-inner {
@@ -422,6 +434,12 @@ header p {
   position: relative;
 }
 
+.pricing-card h3 {
+  margin-top: 0.5rem;
+  font-size: 1.35rem;
+  color: var(--secondary);
+}
+
 .pricing-card.featured {
   border: 2px solid var(--primary);
   transform: translateY(-6px);
@@ -448,14 +466,14 @@ header p {
 }
 
 .pricing-amount span {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-muted);
   margin-left: 0.25rem;
 }
 
 .pricing-tagline {
-  margin: 0;
+  margin: 0.25rem 0 0.5rem;
   color: var(--text-muted);
 }
 
@@ -488,10 +506,17 @@ header p {
   border-radius: 6px;
   text-decoration: none;
   font-weight: 600;
+  min-width: 220px;
 }
 
 .pricing-cta:hover {
   background-color: var(--primary-dark);
+}
+
+.pricing-cta-row {
+  margin-top: 1.75rem;
+  display: flex;
+  justify-content: center;
 }
 
 .pricing-note {
@@ -525,7 +550,7 @@ header p {
 
 #testimonials {
   text-align: center;
-  padding: 1.5rem 1rem;
+  padding: var(--section-pad) 1rem;
   background-color: var(--bg);
 }
 
@@ -651,8 +676,8 @@ header p {
 
 #expanded-faq {
   max-width: 800px;
-  margin: 3rem auto;
-  padding: 0 1rem;
+  margin: 0 auto;
+  padding: var(--section-pad) 1rem;
   text-align: center;
 }
 
@@ -665,7 +690,7 @@ header p {
 #expanded-faq .faq-intro {
   font-size: 1rem;
   color: var(--text-subtle);
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 #expanded-faq details {

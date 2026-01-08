@@ -6,10 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const signupButton1 = document.getElementById("signup-button1");
   const message1 = document.getElementById("signup-message1");
 
-  const emailInput2 = document.getElementById("email-input2");
-  const signupButton2 = document.getElementById("signup-button2");
-  const message2 = document.getElementById("signup-message2");
-
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   // --- Video Modal Elements ---
@@ -187,12 +183,6 @@ document.addEventListener('DOMContentLoaded', () => {
     signupButton1.addEventListener("click", (event) => handleSignup(event, emailInput1, message1));
   } else {
     console.warn("Signup form 1 elements not found.");
-  }
-
-  if (signupButton2 && emailInput2 && message2) {
-    signupButton2.addEventListener("click", (event) => handleSignup(event, emailInput2, message2));
-  } else {
-    console.warn("Signup form 2 elements not found.");
   }
 
   // Video Modal Listeners
