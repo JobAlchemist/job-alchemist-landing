@@ -2,6 +2,9 @@
   --primary: hsl(217, 91%, 60%);
   --primary-light: hsl(212, 96%, 78%);
   --primary-dark: hsl(226, 71%, 40%);
+  --cta-gradient: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  --cta-gradient-hover: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  --cta-radius: 10px;
   --secondary: hsl(224, 64%, 33%);
   --text: #2b2b2b;
   --text-strong: #1a1a1a;
@@ -208,13 +211,13 @@ header p {
 }
 
 .navbar .logo img {
-  height: 45px;
+  height: 32px;
   width: auto;
   display: block;
 }
 
 .footer-logo img {
-  height: 45px;
+  height: 32px;
   width: auto;
   display: block;
   margin-bottom: 1rem;
@@ -257,23 +260,47 @@ header p {
   transition: color 0.3s;
 }
 
+.nav-menu li a.cta-button {
+  color: var(--on-primary);
+  transition: background 0.2s ease;
+}
+
 .nav-menu li a:hover {
   color: var(--primary);
 }
 
-.navbar .cta-button {
-  background-color: var(--primary);
+.nav-menu li a.cta-button:hover {
   color: var(--on-primary);
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background-color 0.3s;
-  white-space: nowrap;
 }
 
-.navbar .cta-button:hover {
-  background-color: var(--primary-dark);
+.navbar .cta-button,
+.signup button,
+.pricing-cta {
+  background: var(--cta-gradient);
+  color: var(--on-primary);
+  border: none;
+  border-radius: var(--cta-radius);
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.navbar .cta-button:hover,
+.signup button:hover,
+.pricing-cta:hover {
+  background: var(--cta-gradient-hover);
+}
+
+.navbar .cta-button:focus-visible,
+.signup button:focus-visible,
+.pricing-cta:focus-visible {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 2px;
+}
+
+.navbar .cta-button {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .signup {
@@ -294,12 +321,7 @@ header p {
 }
 
 .signup button {
-  background-color: var(--primary);
-  color: var(--on-primary);
-  border: none;
   padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
 }
@@ -500,17 +522,9 @@ header p {
 .pricing-cta {
   margin-top: 1rem;
   text-align: center;
-  background-color: var(--primary);
-  color: var(--on-primary);
   padding: 0.6rem 1rem;
-  border-radius: 6px;
   text-decoration: none;
-  font-weight: 600;
   min-width: 220px;
-}
-
-.pricing-cta:hover {
-  background-color: var(--primary-dark);
 }
 
 .pricing-cta-row {
@@ -758,7 +772,8 @@ footer {
 }
 
 .footer-top .footer-links {
-  flex: 0 0 20px;
+  flex: 0 1 180px;
+  min-width: 160px;
   text-align: left;
 }
 

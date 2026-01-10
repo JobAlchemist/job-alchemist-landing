@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const imageModalTitle = document.getElementById('image-modal-title');
   const imageModalCaption = document.getElementById('image-modal-caption');
   const proofImageLinks = document.querySelectorAll('[data-image-modal]');
+  const waitlistLinks = document.querySelectorAll('a[href="#email-input1"]');
 
   // --- Function to Handle Signup Logic ---
   function handleSignup(event, emailInput, message) {
@@ -183,6 +184,16 @@ document.addEventListener('DOMContentLoaded', () => {
     signupButton1.addEventListener("click", (event) => handleSignup(event, emailInput1, message1));
   } else {
     console.warn("Signup form 1 elements not found.");
+  }
+
+  if (emailInput1 && waitlistLinks.length) {
+    waitlistLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        emailInput1.scrollIntoView({ behavior: "smooth", block: "center" });
+        requestAnimationFrame(() => emailInput1.focus({ preventScroll: true }));
+      });
+    });
   }
 
   // Video Modal Listeners
