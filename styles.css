@@ -1,3 +1,30 @@
+:root {
+  --primary: hsl(217, 91%, 60%);
+  --primary-light: hsl(212, 96%, 78%);
+  --primary-dark: hsl(226, 71%, 40%);
+  --cta-gradient: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  --cta-gradient-hover: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  --cta-radius: 10px;
+  --secondary: hsl(224, 64%, 33%);
+  --text: #2b2b2b;
+  --text-strong: #1a1a1a;
+  --text-muted: #4b4b4b;
+  --text-subtle: #666;
+  --text-faint: #9ca3af;
+  --bg: #ffffff;
+  --surface: #f7f9fb;
+  --surface-alt: #e9f0f5;
+  --surface-soft: #f8f9fa;
+  --border: rgba(61, 84, 103, 0.2);
+  --border-light: #d1d5db;
+  --shadow: rgba(0, 0, 0, 0.05);
+  --shadow-strong: rgba(0, 0, 0, 0.1);
+  --overlay: rgba(0, 0, 0, 0.75);
+  --video-bg: #000;
+  --on-primary: #fff;
+  --section-pad: 1.5rem;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
@@ -8,15 +35,19 @@ html {
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: white;
-  color: #2b2b2b;
+  background-color: var(--bg);
+  color: var(--text);
   width: 100%;
   overflow-x: hidden;
 }
 
+h1, h2, h3, h4 {
+  color: var(--secondary);
+}
+
 header {
   text-align: center;
-  padding: 4rem 1rem 2rem;
+  padding: 3.25rem 1rem 0.75rem;
   max-width: 720px;
   margin: 0 auto;
 }
@@ -32,16 +63,137 @@ header p {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  color: var(--text-muted);
+}
+
+.proof-section {
+  padding: var(--section-pad) 1rem;
+  background-color: var(--surface);
+}
+
+.proof-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.proof-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  color: var(--text-subtle);
+  margin-bottom: 0.5rem;
+}
+
+.proof-intro {
+  color: var(--text-muted);
+  margin: 0.75rem auto 2rem;
+  max-width: 640px;
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.proof-card {
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 1.5rem;
+  text-align: left;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 14px var(--shadow);
+}
+
+.proof-card img {
+  width: 100%;
+  height: clamp(170px, 18vw, 240px);
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  background: var(--surface);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+
+.proof-image-link {
+  display: block;
+  cursor: zoom-in;
+}
+
+.proof-image-link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+.proof-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  line-height: 1.3;
+  min-height: 2.6em;
+  color: var(--secondary);
+}
+
+.proof-card p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.image-modal-content {
+  max-width: 1220px;
+  width: min(96vw, 1220px);
+  padding: 14px 16px 16px;
+}
+
+.image-modal-img {
+  display: block;
+  width: 100%;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.image-modal-meta {
+  padding: 0.75rem 0.25rem 0.25rem;
+}
+
+.image-modal-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+  color: var(--secondary);
+}
+
+.image-modal-caption {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.image-modal-content .modal-close {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--text-strong);
+  top: 10px;
+  right: 10px;
+  line-height: 1;
+}
+
+.image-modal-content .modal-close:hover {
+  color: var(--text-subtle);
 }
 
 .navbar {
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: var(--bg);
+  box-shadow: 0 2px 4px var(--shadow);
   position: fixed;
   top: 0;
   z-index: 1000;
   width: 100%;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .navbar .container {
@@ -57,7 +209,7 @@ header p {
 .navbar .logo {
   font-weight: 700;
   font-size: 1.25rem;
-  color: #3b82f6;
+  color: var(--primary);
   margin-right: auto;
   text-decoration: none;
   display: inline-flex;
@@ -65,13 +217,13 @@ header p {
 }
 
 .navbar .logo img {
-  height: 45px;
+  height: 32px;
   width: auto;
   display: block;
 }
 
 .footer-logo img {
-  height: 45px;
+  height: 32px;
   width: auto;
   display: block;
   margin-bottom: 1rem;
@@ -91,7 +243,7 @@ header p {
 .nav-toggle span {
   width: 22px;
   height: 2px;
-  background-color: #1a1a1a;
+  background-color: var(--text-strong);
   display: block;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -109,28 +261,62 @@ header p {
 
 .nav-menu li a {
   text-decoration: none;
-  color: #1a1a1a;
+  color: var(--text-strong);
   font-weight: 500;
   transition: color 0.3s;
 }
 
+.nav-menu li .nav-disabled {
+  color: var(--text-subtle);
+  font-weight: 500;
+  cursor: default;
+}
+
+.nav-menu li a.nav-disabled {
+  pointer-events: none;
+}
+
+.nav-menu li a.cta-button {
+  color: var(--on-primary);
+  transition: background 0.2s ease;
+}
+
 .nav-menu li a:hover {
-  color: #3b82f6;
+  color: var(--primary);
+}
+
+.nav-menu li a.cta-button:hover {
+  color: var(--on-primary);
+}
+
+.navbar .cta-button,
+.signup button,
+.pricing-cta {
+  background: var(--cta-gradient);
+  color: var(--on-primary);
+  border: none;
+  border-radius: var(--cta-radius);
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.navbar .cta-button:hover,
+.signup button:hover,
+.pricing-cta:hover {
+  background: var(--cta-gradient-hover);
+}
+
+.navbar .cta-button:focus-visible,
+.signup button:focus-visible,
+.pricing-cta:focus-visible {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 2px;
 }
 
 .navbar .cta-button {
-  background-color: #3b82f6;
-  color: white;
   padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-weight: 600;
   text-decoration: none;
-  transition: background-color 0.3s;
   white-space: nowrap;
-}
-
-.navbar .cta-button:hover {
-  background-color: #2563eb;
 }
 
 .signup {
@@ -145,24 +331,19 @@ header p {
 .signup input {
   padding: 0.75rem;
   width: 280px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-light);
   border-radius: 6px;
   font-size: 1rem;
 }
 
 .signup button {
-  background-color: #3b82f6;
-  color: white;
-  border: none;
   padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
 }
 
 .sub-heading-section-bg {
-  background-color: #f7f9fb;
+  background-color: var(--surface);
   width: 100%;
 }
 
@@ -171,10 +352,10 @@ header p {
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1.5rem;
   max-width: 1200px;
   flex-wrap: wrap;
-  padding: 1.5rem 1.5rem 2rem;
+  padding: 1.25rem 1.5rem 1.75rem;
 
 }
 .sub-heading {
@@ -186,7 +367,7 @@ header p {
   flex: 1 1 50%;
   min-width: 300px;
   line-height: 1.7;
-  color: #4b4b4b;
+  color: var(--text-muted);
   margin: 0.5rem 0;
 }
 
@@ -206,39 +387,205 @@ header p {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  padding: 5rem 1rem;
+  padding: var(--section-pad) 1rem;
+  background-color: var(--bg);
+}
+
+.features-heading {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.features-heading h2 {
+  margin: 0;
 }
 
 .feature-box {
-  background: white;
+  background: var(--bg);
   border-radius: 12px;
   padding: 1.5rem;
   width: 220px;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(61, 84, 103, 0.2);
+  box-shadow: 0 4px 8px var(--shadow);
+  border: 1px solid var(--border);
 }
 
 .feature-box i {
   font-size: 2rem;
-  color: #3b82f6;
+  color: var(--primary);
 }
 
 .feature-box h3 {
   margin-top: 1rem;
   font-size: 1.15rem;
-  color: #1a1a1a;
+  line-height: 1.3;
+  min-height: 3.9em;
+  color: var(--secondary);
+}
+
+.feature-headline {
+  margin: 0.5rem 0 0.75rem;
+  font-weight: 700;
+  line-height: 1.35;
+  min-height: 2.7em;
+  color: var(--primary);
 }
 
 .feature-box p {
   font-size: 0.95rem;
-  color: #4b4b4b;
+  color: var(--text-muted);
+}
+
+.pricing-section {
+  background-color: var(--surface);
+  padding: var(--section-pad) 1rem;
+}
+
+.pricing-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pricing-intro {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+}
+
+.pricing-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.pricing-card {
+  background: var(--bg);
+  border-radius: 14px;
+  padding: 2rem 1.5rem;
+  width: 280px;
+  text-align: left;
+  box-shadow: 0 6px 14px var(--shadow);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+}
+
+.pricing-card h3 {
+  margin-top: 0.5rem;
+  font-size: 1.35rem;
+  color: var(--secondary);
+}
+
+.pricing-card.featured {
+  border: 2px solid var(--primary);
+  transform: translateY(-6px);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: var(--on-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.pricing-amount {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0.25rem 0 0.5rem;
+  color: var(--secondary);
+}
+
+.pricing-amount span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-left: 0.25rem;
+}
+
+.pricing-tagline {
+  margin: 0.25rem 0 0.5rem;
+  color: var(--text-muted);
+}
+
+.pricing-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+.pricing-list li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.1rem;
+  position: relative;
+  color: var(--text-muted);
+}
+
+.pricing-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+.pricing-cta {
+  margin-top: 1rem;
+  text-align: center;
+  padding: 0.6rem 1rem;
+  text-decoration: none;
+  min-width: 220px;
+}
+
+.pricing-cta-row {
+  margin-top: 1.75rem;
+  display: flex;
+  justify-content: center;
+}
+
+.pricing-note {
+  margin-top: 2rem;
+  color: var(--text-subtle);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 980px) {
+  .proof-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-card {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .pricing-card.featured {
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .proof-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 #testimonials {
   text-align: center;
-  padding: 2rem 1rem;
-  background-color: white;
+  padding: var(--section-pad) 1rem;
+  background-color: var(--bg);
 }
 
 .quotes {
@@ -253,13 +600,13 @@ header p {
 }
 
 .quote {
-  background: #e9f0f5;
+  background: var(--surface-alt);
   border-radius: 12px;
   padding: 1rem;
   width: calc(25% - 1.5rem);
   min-width: 250px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 8px var(--shadow);
+  border: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -268,13 +615,13 @@ header p {
 
 .quote i {
   font-size: 1.5rem;
-  color: #3b82f6;
+  color: var(--primary);
   margin-bottom: 0.5rem;
 }
 
 .quote-text {
   font-style: italic;
-  color: #3d3d3d;
+  color: var(--text-muted);
   margin-bottom: 1rem;
 }
 
@@ -283,7 +630,7 @@ header p {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.85rem;
-  color: #555;
+  color: var(--text-muted);
 }
 
 .quote-footer .avatar {
@@ -301,7 +648,7 @@ header p {
 }
 
 #full-faq-bg {
-  background-color: #f7f9fb;
+  background-color: var(--surface);
   width: 100%;
 }
 
@@ -331,7 +678,7 @@ header p {
   font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  color: #1a1a1a;
+  color: var(--secondary);
   text-align: center;
 }
 
@@ -343,14 +690,14 @@ header p {
 .signup-faq .faq-block h3 {
   font-size: 1.125rem;
   font-weight: 600;
-  color: #1a1a1a;
+  color: var(--secondary);
   margin-bottom: 0.5rem;
 }
 
 .signup-faq .faq-block p {
   font-size: 1rem;
   line-height: 1.7;
-  color: #4b4b4b;
+  color: var(--text-muted);
   margin: 0;
 }
 
@@ -363,8 +710,8 @@ header p {
 
 #expanded-faq {
   max-width: 800px;
-  margin: 4rem auto;
-  padding: 0 1rem;
+  margin: 0 auto;
+  padding: var(--section-pad) 1rem;
   text-align: center;
 }
 
@@ -376,16 +723,16 @@ header p {
 
 #expanded-faq .faq-intro {
   font-size: 1rem;
-  color: #666;
-  margin-bottom: 2rem;
+  color: var(--text-subtle);
+  margin-bottom: 2.5rem;
 }
 
 #expanded-faq details {
-  background: #f8f9fa;
+  background: var(--surface-soft);
   border-radius: 8px;
   padding: 1rem 1.25rem;
   margin-bottom: 1rem;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--border-light);
   transition: all 0.3s ease;
   cursor: pointer;
   text-align: left;
@@ -418,14 +765,14 @@ header p {
   margin-top: 0.75rem;
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #444;
+  color: var(--text-muted);
 }
 
 footer {
-  background-color: #f7f9fb;
+  background-color: var(--surface);
   padding: 3rem 1.5rem 1rem;
   font-size: 0.95rem;
-  color: #333;
+  color: var(--text);
 }
 
 .footer-top {
@@ -445,30 +792,36 @@ footer {
 }
 
 .footer-top .footer-links {
-  flex: 0 0 20px;
+  flex: 0 1 180px;
+  min-width: 160px;
   text-align: left;
 }
 
 .footer-top h4 {
   font-size: 1.1rem;
-  margin-bottom: 1rem;
+  margin: 0 0 1rem;
 }
 
 .footer-top p, .footer-links a {
-  color: #333;
+  color: var(--text);
   line-height: 1.6;
   text-decoration: none;
+}
+
+.footer-tagline {
+  font-weight: 700;
+  color: var(--text-strong);
 }
 
 .footer-links a {
   display: block;
   margin-bottom: 0.5rem;
-  color: #1a1a1a;
+  color: var(--text-strong);
   transition: color 0.3s ease;
 }
 
 .footer-bottom {
-  border-top: 1px solid #ddd;
+  border-top: 1px solid var(--border-light);
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -477,7 +830,7 @@ footer {
   max-width: 1200px;
   margin: 0 auto;
   font-size: 0.85rem;
-  color: #666;
+  color: var(--text-subtle);
   padding-top: 1.5rem;
 }
 
@@ -502,8 +855,8 @@ footer {
     top: 100%;
     left: 0;
     width: 100%;
-    background: #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background: var(--bg);
+    box-shadow: 0 4px 10px var(--shadow-strong);
     padding: 1rem 0;
     flex-direction: column;
     align-items: center;
@@ -522,38 +875,13 @@ footer {
 
   .footer-top,
   .footer-bottom {
-    text-align: center;
-    align-items: center;
+    text-align: left;
+    align-items: flex-start;
   }
   .footer-links {
-    text-align: center;
+    text-align: left;
   }
 }
-
-/* Style for the video trigger link */
-.video-trigger-link {
-  /* display: block; */ /* Not strictly needed with flex-basis */
-  flex-basis: 100%; /* CRITICAL: Make the link take the full width */
-  order: 3; /* Ensure it comes after input (default 0) and button (default 0) */
-  text-align: center; /* Center the link text */
-  margin-top: 5px; /* Adjust top margin (gap provides horizontal spacing) */
-  color: #555;
-  text-decoration: none;
-  font-size: 1.05rem;
-  transition: color 0.3s ease;
-  cursor: pointer;
-}
-
-.video-trigger-link:hover {
-  color: #0056b3; /* Darker blue on hover - adjust as needed */
-  text-decoration: underline; /* Add underline on hover for clarity */
-}
-
-.video-trigger-link i {
-  margin-right: 5px; /* Space between icon and text */
-  vertical-align: middle; /* Align icon nicely with text */
-}
-
 
 /* Basic Modal Styles */
 .modal-overlay {
@@ -562,7 +890,7 @@ footer {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.75); /* Slightly darker overlay */
+  background-color: var(--overlay); /* Slightly darker overlay */
   z-index: 1000; /* Sit on top */
   display: flex; /* Use flexbox for centering */
   justify-content: center;
@@ -578,13 +906,13 @@ footer {
 }
 
 .modal-content {
-  background-color: #fff;
+  background-color: var(--bg);
   padding: 20px; /* Add some padding */
   border-radius: 8px; /* Slightly more rounded corners */
   position: relative;
   width: 90%; /* Responsive width */
   max-width: 800px; /* Max width for the video container */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 15px var(--shadow-strong);
   /* Optional: Add animation */
   transform: scale(0.9);
   transition: transform 0.3s ease;
@@ -600,7 +928,7 @@ footer {
   right: 15px;
   font-size: 2.2em; /* Make close button slightly larger */
   font-weight: bold;
-  color: #aaa;
+  color: var(--text-faint);
   background: none;
   border: none;
   cursor: pointer;
@@ -609,27 +937,7 @@ footer {
   transition: color 0.2s ease;
 }
 .modal-close:hover {
-    color: #333; /* Darker on hover */
-}
-
-/* Container to maintain aspect ratio (16:9) */
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    background: #000; /* Black background while video loads */
-    border-radius: 4px; /* Optional: slightly round video corners */
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0; /* Remove iframe border */
+    color: var(--text-strong); /* Darker on hover */
 }
 
 /* Target the signup container specifically within the header */

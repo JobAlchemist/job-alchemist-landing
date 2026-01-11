@@ -6,20 +6,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const signupButton1 = document.getElementById("signup-button1");
   const message1 = document.getElementById("signup-message1");
 
-  const emailInput2 = document.getElementById("email-input2");
-  const signupButton2 = document.getElementById("signup-button2");
-  const message2 = document.getElementById("signup-message2");
-
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  // --- Video Modal Elements ---
-  const openModalLink = document.getElementById('play-video-link'); // Link that opens the modal
-  const closeModalBtn = document.getElementById('close-modal-btn'); // Button inside the modal to close it
-  const modal = document.getElementById('video-modal');             // The modal overlay div
-  const videoIframe = modal ? modal.querySelector('iframe') : null; // The iframe holding the video
-  const originalVideoSrc = videoIframe ? videoIframe.src : '';      // Store the original video src
   const navToggle = document.querySelector('.nav-toggle');
   const navMenu = document.querySelector('.nav-menu');
+  const imageModal = document.getElementById('image-modal');
+  const imageModalImg = document.getElementById('image-modal-img');
+  const imageModalClose = document.getElementById('image-modal-close');
+  const imageModalTitle = document.getElementById('image-modal-title');
+  const imageModalCaption = document.getElementById('image-modal-caption');
+  const proofImageLinks = document.querySelectorAll('[data-image-modal]');
+  const waitlistLinks = document.querySelectorAll('a[href="#email-input1"]');
 
   // --- Function to Handle Signup Logic ---
   function handleSignup(event, emailInput, message) {
@@ -88,37 +85,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Video Modal Functions ---
-  function openModal(event) {
-    // Prevent the default link behavior (e.g., navigating to '#')
-    if(event) event.preventDefault();
+  // --- Proof Image Modal Functions ---
+  function openImageModal(event) {
+    event.preventDefault();
 
-    if (modal && videoIframe) {
-      // Ensure the video source is set correctly before showing, especially if it was cleared on close
-      if (videoIframe.src !== originalVideoSrc && originalVideoSrc) {
-          videoIframe.src = originalVideoSrc;
-      }
-      modal.style.display = 'flex'; // Use flex to enable centering defined in CSS
-      // Use a tiny timeout to allow the 'display' change to render before starting the transition
-      setTimeout(() => {
-          modal.classList.add('active'); // Add class to trigger opacity/transform transitions
-      }, 10);
-    } else {
-      console.error("Modal container or video iframe element not found!");
+    if (!imageModal || !imageModalImg) {
+      console.error("Image modal elements not found!");
+      return;
     }
+
+    const trigger = event.currentTarget;
+    const src = trigger.getAttribute('data-image-modal');
+    const alt = trigger.getAttribute('data-image-alt') || '';
+    const title = trigger.getAttribute('data-image-title') || '';
+    const caption = trigger.getAttribute('data-image-caption') || '';
+
+    if (!src) {
+      console.error("Image modal source not found!");
+      return;
+    }
+
+    imageModalImg.src = src;
+    imageModalImg.alt = alt;
+    if (imageModalTitle) {
+      imageModalTitle.textContent = title;
+    }
+    if (imageModalCaption) {
+      imageModalCaption.textContent = caption;
+    }
+    imageModal.style.display = 'flex';
+    setTimeout(() => {
+      imageModal.classList.add('active');
+    }, 10);
   }
 
-  function closeModal() {
-    if (modal && videoIframe) {
-      modal.classList.remove('active'); // Remove class to trigger fade-out transition
-      // Wait for the fade-out transition to finish before hiding and stopping the video
-      setTimeout(() => {
-          modal.style.display = 'none'; // Hide the modal completely
-          // Stop the video playback by removing the src attribute (most reliable method)
-          videoIframe.src = '';
-          // Note: We restore the src in openModal to avoid unnecessary loading if the modal isn't opened again.
-      }, 300); // This duration should match the transition duration in your CSS (e.g., 0.3s)
+  function closeImageModal() {
+    if (!imageModal || !imageModalImg) {
+      return;
     }
+
+    imageModal.classList.remove('active');
+    setTimeout(() => {
+      imageModal.style.display = 'none';
+      imageModalImg.src = '';
+      imageModalImg.alt = '';
+      if (imageModalTitle) {
+        imageModalTitle.textContent = '';
+      }
+      if (imageModalCaption) {
+        imageModalCaption.textContent = '';
+      }
+    }, 300);
   }
 
   // --- Add Event Listeners ---
@@ -130,43 +147,45 @@ document.addEventListener('DOMContentLoaded', () => {
     console.warn("Signup form 1 elements not found.");
   }
 
-  if (signupButton2 && emailInput2 && message2) {
-    signupButton2.addEventListener("click", (event) => handleSignup(event, emailInput2, message2));
-  } else {
-    console.warn("Signup form 2 elements not found.");
+  if (emailInput1 && waitlistLinks.length) {
+    waitlistLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        emailInput1.scrollIntoView({ behavior: "smooth", block: "center" });
+        requestAnimationFrame(() => emailInput1.focus({ preventScroll: true }));
+      });
+    });
   }
 
-  // Video Modal Listeners
-  if (openModalLink) {
-    openModalLink.addEventListener('click', openModal);
+  // Proof Image Modal Listeners
+  if (proofImageLinks.length) {
+    proofImageLinks.forEach((link) => {
+      link.addEventListener('click', openImageModal);
+    });
   } else {
-    console.warn("Video trigger link ('play-video-link') not found.");
+    console.warn("Proof image links not found.");
   }
 
-  if (closeModalBtn) {
-    closeModalBtn.addEventListener('click', closeModal);
+  if (imageModalClose) {
+    imageModalClose.addEventListener('click', closeImageModal);
   } else {
-    console.warn("Modal close button ('close-modal-btn') not found.");
+    console.warn("Image modal close button not found.");
   }
 
-  // Listener to close modal when clicking on the overlay background
-  if (modal) {
-    modal.addEventListener('click', (event) => {
-      // Check if the click is directly on the modal overlay itself (the dark background)
-      if (event.target === modal) {
-        closeModal();
+  if (imageModal) {
+    imageModal.addEventListener('click', (event) => {
+      if (event.target === imageModal) {
+        closeImageModal();
       }
     });
   } else {
-     console.warn("Modal container ('video-modal') not found for background click listener.");
+    console.warn("Image modal container not found.");
   }
 
-  // Listener to close modal with the Escape key
   document.addEventListener('keydown', (event) => {
-      // Check if the modal exists, is currently active (visible), and the Escape key was pressed
-      if (event.key === 'Escape' && modal && modal.classList.contains('active')) {
-          closeModal();
-      }
+    if (event.key === 'Escape' && imageModal && imageModal.classList.contains('active')) {
+      closeImageModal();
+    }
   });
 
   if (navToggle && navMenu) {
