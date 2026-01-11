@@ -8,12 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  // --- Video Modal Elements ---
-  const openModalLink = document.getElementById('play-video-link'); // Link that opens the modal
-  const closeModalBtn = document.getElementById('close-modal-btn'); // Button inside the modal to close it
-  const modal = document.getElementById('video-modal');             // The modal overlay div
-  const videoIframe = modal ? modal.querySelector('iframe') : null; // The iframe holding the video
-  const originalVideoSrc = videoIframe ? videoIframe.src : '';      // Store the original video src
   const navToggle = document.querySelector('.nav-toggle');
   const navMenu = document.querySelector('.nav-menu');
   const imageModal = document.getElementById('image-modal');
@@ -91,39 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Video Modal Functions ---
-  function openModal(event) {
-    // Prevent the default link behavior (e.g., navigating to '#')
-    if(event) event.preventDefault();
-
-    if (modal && videoIframe) {
-      // Ensure the video source is set correctly before showing, especially if it was cleared on close
-      if (videoIframe.src !== originalVideoSrc && originalVideoSrc) {
-          videoIframe.src = originalVideoSrc;
-      }
-      modal.style.display = 'flex'; // Use flex to enable centering defined in CSS
-      // Use a tiny timeout to allow the 'display' change to render before starting the transition
-      setTimeout(() => {
-          modal.classList.add('active'); // Add class to trigger opacity/transform transitions
-      }, 10);
-    } else {
-      console.error("Modal container or video iframe element not found!");
-    }
-  }
-
-  function closeModal() {
-    if (modal && videoIframe) {
-      modal.classList.remove('active'); // Remove class to trigger fade-out transition
-      // Wait for the fade-out transition to finish before hiding and stopping the video
-      setTimeout(() => {
-          modal.style.display = 'none'; // Hide the modal completely
-          // Stop the video playback by removing the src attribute (most reliable method)
-          videoIframe.src = '';
-          // Note: We restore the src in openModal to avoid unnecessary loading if the modal isn't opened again.
-      }, 300); // This duration should match the transition duration in your CSS (e.g., 0.3s)
-    }
-  }
-
   // --- Proof Image Modal Functions ---
   function openImageModal(event) {
     event.preventDefault();
@@ -195,39 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-
-  // Video Modal Listeners
-  if (openModalLink) {
-    openModalLink.addEventListener('click', openModal);
-  } else {
-    console.warn("Video trigger link ('play-video-link') not found.");
-  }
-
-  if (closeModalBtn) {
-    closeModalBtn.addEventListener('click', closeModal);
-  } else {
-    console.warn("Modal close button ('close-modal-btn') not found.");
-  }
-
-  // Listener to close modal when clicking on the overlay background
-  if (modal) {
-    modal.addEventListener('click', (event) => {
-      // Check if the click is directly on the modal overlay itself (the dark background)
-      if (event.target === modal) {
-        closeModal();
-      }
-    });
-  } else {
-     console.warn("Modal container ('video-modal') not found for background click listener.");
-  }
-
-  // Listener to close modal with the Escape key
-  document.addEventListener('keydown', (event) => {
-      // Check if the modal exists, is currently active (visible), and the Escape key was pressed
-      if (event.key === 'Escape' && modal && modal.classList.contains('active')) {
-          closeModal();
-      }
-  });
 
   // Proof Image Modal Listeners
   if (proofImageLinks.length) {

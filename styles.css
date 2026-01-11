@@ -108,7 +108,11 @@ header p {
 
 .proof-card img {
   width: 100%;
-  height: auto;
+  height: clamp(170px, 18vw, 240px);
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  background: var(--surface);
   border-radius: 10px;
   border: 1px solid var(--border);
   margin-bottom: 1rem;
@@ -128,6 +132,8 @@ header p {
 .proof-card h3 {
   margin: 0 0 0.5rem;
   font-size: 1.1rem;
+  line-height: 1.3;
+  min-height: 2.6em;
   color: var(--secondary);
 }
 
@@ -258,6 +264,16 @@ header p {
   color: var(--text-strong);
   font-weight: 500;
   transition: color 0.3s;
+}
+
+.nav-menu li .nav-disabled {
+  color: var(--text-subtle);
+  font-weight: 500;
+  cursor: default;
+}
+
+.nav-menu li a.nav-disabled {
+  pointer-events: none;
 }
 
 .nav-menu li a.cta-button {
@@ -403,12 +419,16 @@ header p {
 .feature-box h3 {
   margin-top: 1rem;
   font-size: 1.15rem;
+  line-height: 1.3;
+  min-height: 3.9em;
   color: var(--secondary);
 }
 
 .feature-headline {
   margin: 0.5rem 0 0.75rem;
   font-weight: 700;
+  line-height: 1.35;
+  min-height: 2.7em;
   color: var(--primary);
 }
 
@@ -779,13 +799,18 @@ footer {
 
 .footer-top h4 {
   font-size: 1.1rem;
-  margin-bottom: 1rem;
+  margin: 0 0 1rem;
 }
 
 .footer-top p, .footer-links a {
   color: var(--text);
   line-height: 1.6;
   text-decoration: none;
+}
+
+.footer-tagline {
+  font-weight: 700;
+  color: var(--text-strong);
 }
 
 .footer-links a {
@@ -850,38 +875,13 @@ footer {
 
   .footer-top,
   .footer-bottom {
-    text-align: center;
-    align-items: center;
+    text-align: left;
+    align-items: flex-start;
   }
   .footer-links {
-    text-align: center;
+    text-align: left;
   }
 }
-
-/* Style for the video trigger link */
-.video-trigger-link {
-  /* display: block; */ /* Not strictly needed with flex-basis */
-  flex-basis: 100%; /* CRITICAL: Make the link take the full width */
-  order: 3; /* Ensure it comes after input (default 0) and button (default 0) */
-  text-align: center; /* Center the link text */
-  margin-top: 5px; /* Adjust top margin (gap provides horizontal spacing) */
-  color: var(--text-muted);
-  text-decoration: none;
-  font-size: 1.05rem;
-  transition: color 0.3s ease;
-  cursor: pointer;
-}
-
-.video-trigger-link:hover {
-  color: var(--primary-dark); /* Darker blue on hover - adjust as needed */
-  text-decoration: underline; /* Add underline on hover for clarity */
-}
-
-.video-trigger-link i {
-  margin-right: 5px; /* Space between icon and text */
-  vertical-align: middle; /* Align icon nicely with text */
-}
-
 
 /* Basic Modal Styles */
 .modal-overlay {
@@ -938,26 +938,6 @@ footer {
 }
 .modal-close:hover {
     color: var(--text-strong); /* Darker on hover */
-}
-
-/* Container to maintain aspect ratio (16:9) */
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    background: var(--video-bg); /* Black background while video loads */
-    border-radius: 4px; /* Optional: slightly round video corners */
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0; /* Remove iframe border */
 }
 
 /* Target the signup container specifically within the header */
