@@ -143,15 +143,15 @@ header p {
 }
 
 .image-modal-content {
-  max-width: 1220px;
-  width: min(96vw, 1220px);
+  max-width: 1320px;
+  width: min(96vw, 1320px);
   padding: 14px 16px 16px;
 }
 
 .image-modal-img {
   display: block;
   width: 100%;
-  max-height: 82vh;
+  max-height: 85vh;
   object-fit: contain;
   border-radius: 8px;
 }
@@ -281,12 +281,20 @@ header p {
   transition: background 0.2s ease;
 }
 
+.nav-menu li a.login-button {
+  color: var(--secondary);
+}
+
 .nav-menu li a:hover {
   color: var(--primary);
 }
 
 .nav-menu li a.cta-button:hover {
   color: var(--on-primary);
+}
+
+.nav-menu li a.login-button:hover {
+  color: var(--secondary);
 }
 
 .navbar .cta-button,
@@ -317,6 +325,29 @@ header p {
   padding: 0.5rem 1rem;
   text-decoration: none;
   white-space: nowrap;
+}
+
+.navbar .login-button {
+  display: inline-block;
+  padding: 0.46rem 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: var(--cta-radius);
+  background-color: var(--bg);
+  color: var(--secondary);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar .login-button:hover {
+  border-color: var(--primary);
+  background-color: var(--surface-alt);
+}
+
+.navbar .login-button:focus-visible {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 2px;
 }
 
 .signup {
@@ -873,6 +904,10 @@ footer {
     margin-top: 0.5rem;
   }
 
+  .navbar .login-button {
+    display: inline-block;
+  }
+
   .footer-top,
   .footer-bottom {
     text-align: left;
@@ -916,6 +951,12 @@ footer {
   /* Optional: Add animation */
   transform: scale(0.9);
   transition: transform 0.3s ease;
+}
+
+.modal-content.image-modal-content {
+  width: min(96vw, 1320px);
+  max-width: 1320px;
+  padding: 14px 16px 16px;
 }
 
 .modal-overlay.active .modal-content {
