@@ -1,0 +1,34 @@
+# JobAlchemist
+
+Official website: https://www.jobalchemist.tech/
+Product app: https://app.jobalchemist.tech/
+Contact: hello@jobalchemist.tech
+
+## Tagline
+Apply with confidence, not guesswork.
+
+## What JobAlchemist does
+JobAlchemist helps job seekers decode job ads, assess fit and gaps, and generate tailored CV and cover letter drafts.
+
+## Who it is for
+Individual job seekers who want role-specific guidance instead of generic AI outputs.
+
+## Core capabilities
+- Job ad intelligence to surface hidden requirements and context.
+- CV analysis focused on strengths, gaps, and recruiter-style clarity.
+- Job-fit analysis with rationale and gap identification.
+- Role-specific CV and cover letter drafting.
+- Job-search workflow organization across roles and versions.
+
+## Canonical pages
+- Home: https://www.jobalchemist.tech/
+- Terms of Use: https://www.jobalchemist.tech/terms.html
+- Privacy Policy: https://www.jobalchemist.tech/privacy.html
+
+## Trust and policy notes
+- Terms: https://www.jobalchemist.tech/terms.html
+- Privacy: https://www.jobalchemist.tech/privacy.html
+- AI outputs are assistive and should be reviewed by users before submission.
+
+## Last updated
+2026-02-22
