@@ -1,4 +1,4 @@
-# JobAlchemist
+﻿# JobAlchemist
 
 Official website: https://www.jobalchemist.tech/
 Product app: https://app.jobalchemist.tech/
@@ -22,6 +22,8 @@ Individual job seekers who want role-specific guidance instead of generic AI out
 
 ## Canonical pages
 - Home: https://www.jobalchemist.tech/
+- Outplacement Support: https://www.jobalchemist.tech/outplacement-support.html
+- Students: https://www.jobalchemist.tech/students.html
 - Terms of Use: https://www.jobalchemist.tech/terms.html
 - Privacy Policy: https://www.jobalchemist.tech/privacy.html
 
@@ -31,4 +33,5 @@ Individual job seekers who want role-specific guidance instead of generic AI out
 - AI outputs are assistive and should be reviewed by users before submission.
 
 ## Last updated
-2026-02-22
+2026-03-12
+
