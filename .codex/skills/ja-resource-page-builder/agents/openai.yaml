@@ -1,0 +1,4 @@
+interface:
+  display_name: "Resource Page Builder"
+  short_description: "Recommend and build JobAlchemist resource pages"
+  default_prompt: "Use $ja-resource-page-builder to recommend or create high-impact SEO/AEO resource pages for JobAlchemist."

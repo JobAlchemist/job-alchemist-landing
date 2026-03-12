@@ -92,6 +92,15 @@ header p {
   margin-bottom: 1rem;
 }
 
+.students-page .eyebrow-pill {
+  background-color: #e7eff8;
+  color: #1e293b;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 .hero-content h1 {
   margin-top: 0;
   margin-bottom: 1.5rem;
@@ -1157,6 +1166,63 @@ header .signup p#signup-message1 {
   color: var(--primary);
 }
 
+/* Resource pages */
+.resource-page .legal-header h1 {
+  color: #0f172a;
+}
+
+.resource-page .legal-header p,
+.resource-page .legal-content p {
+  color: #475569;
+  line-height: 1.75;
+}
+
+.resource-page .legal-content li {
+  color: #475569;
+  line-height: 1.75;
+}
+
+.resource-page .legal-content h2.numbered-subheader {
+  color: #1e3a8a;
+  font-weight: 700;
+}
+
+.resource-page .resource-nav-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid #1e3a8a;
+  border-radius: var(--cta-radius);
+  background: transparent;
+  color: #1e3a8a;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.resource-page .resource-nav-button:hover,
+.resource-page .resource-nav-button:focus-visible {
+  background-color: #1e3a8a;
+  color: #fff;
+}
+
+.resource-page .related-resources-wrap {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+}
+
+.resource-page .related-resources-wrap h2 {
+  color: #334155;
+}
+
+.resource-page .related-resources-wrap li {
+  color: #64748b;
+}
+
+.resource-page .related-resources-wrap a {
+  color: #1e3a8a;
+}
+
 @media (max-width: 768px) {
   .legal-page {
     padding-top: 76px;
@@ -1221,6 +1287,35 @@ header .signup p#signup-message1 {
   line-height: 1.7;
   color: var(--text-muted);
   max-width: 720px;
+}
+
+.outplacement-hero-solution {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-bottom: 0;
+}
+
+.outplacement-hero-solution .eyebrow-pill {
+  background-color: #e7eff8;
+  color: #1e293b;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.outplacement-hero-solution h1 {
+  margin: 0 0 1.5rem;
+}
+
+.outplacement-hero-solution .subtitle {
+  margin: 0 0 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .outplacement-grid {
@@ -1505,7 +1600,12 @@ header .signup p#signup-message1 {
 
 @media (max-width: 640px) {
   .outplacement-hero {
-    text-align: left;
+    text-align: center;
+  }
+
+  .outplacement-hero .subtitle {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .outplacement-hero h1 {
@@ -1647,6 +1747,16 @@ header .signup p#signup-message1 {
   text-align: left;
 }
 
+.outplacement-hero-print .eyebrow-pill {
+  background-color: #e7eff8;
+  color: #1e293b;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
 .print-hero-row {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -1676,4 +1786,308 @@ header .signup p#signup-message1 {
 
 .outplacement-page:not(.outplacement-print) .outplacement-hero {
   padding-top: 6rem;
+}
+
+/* Outplacement print flyer (v2) */
+.outplacement-print .a4-sheet.print-flyer {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 2mm 12mm 12mm;
+  box-sizing: border-box;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 3mm;
+  color: var(--text-muted);
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0.25rem auto 1rem;
+}
+
+.print-flyer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid #E5E7EB;
+  padding-bottom: 1rem;
+}
+
+.print-flyer-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  background: #dbeafe;
+  color: var(--secondary);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.print-flyer-logo {
+  height: 2rem;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.print-flyer-hero {
+  margin-top: 0.2rem;
+}
+
+.print-flyer-hero h1 {
+  margin: 0;
+  color: var(--secondary);
+  font-size: 2rem;
+  line-height: 1.18;
+  font-weight: 700;
+}
+
+.print-flyer-hero p {
+  margin: 2rem 0 0;
+  color: var(--text-muted);
+  font-size: 1.08rem;
+  line-height: 1.55;
+}
+
+.print-flyer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
+  margin-top: 1.2rem;
+}
+
+.print-flyer-column h2 {
+  margin: 0;
+  color: var(--secondary);
+  font-size: 1.25rem;
+  font-weight: 800;
+  border-bottom: 2px solid #EFF6FF;
+  padding-bottom: 0.45rem;
+}
+
+.print-flyer-kicker {
+  margin: 0.9rem 0 2.3rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  font-size: 0.72rem;
+}
+
+.print-flyer-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+}
+
+.print-flyer-card + .print-flyer-card {
+  margin-top: 1.7rem;
+}
+
+.print-flyer-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.print-flyer-card-icon svg {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.print-flyer-card h3 {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.print-flyer-card p {
+  margin: 0.42rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.print-flyer-footer {
+  margin-top: 0.7rem;
+  padding-top: 0.2rem;
+}
+
+.print-flyer-trust {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid var(--secondary);
+  border-radius: 10px;
+  padding: 0.95rem 1rem;
+}
+
+.print-flyer-trust h3 {
+  margin: 0 0 0.45rem;
+  color: var(--secondary);
+  font-weight: 700;
+  font-size: 1.02rem;
+}
+
+.print-flyer-trust p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.print-flyer-contact {
+  margin-top: 0.8rem;
+  text-align: center;
+}
+
+.print-flyer-contact p {
+  margin: 0.35rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.print-flyer-contact p:first-child {
+  margin-top: 0;
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.print-flyer-contact a {
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+.print-flyer-note {
+  margin: 0.6rem 0 0;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .print-flyer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  body.outplacement-print .a4-sheet.print-flyer {
+    margin: 0;
+    box-shadow: none;
+    width: 210mm;
+    min-height: 297mm;
+    padding: 1mm 10mm 10mm;
+    gap: 2.8mm;
+  }
+
+  body.outplacement-print .print-flyer-pill {
+    font-size: 0.62rem;
+    padding: 0.27rem 0.72rem;
+  }
+
+  body.outplacement-print .print-flyer-logo {
+    height: 1.65rem;
+  }
+
+  body.outplacement-print .print-flyer-hero h1 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+
+  body.outplacement-print .print-flyer-hero p {
+    font-size: 0.94rem;
+    margin-top: 1.16rem;
+    line-height: 1.4;
+  }
+
+  body.outplacement-print .print-flyer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+    margin-top: 0.9rem;
+  }
+
+  body.outplacement-print .print-flyer-kicker {
+    margin-bottom: 1.2rem;
+    font-size: 0.66rem;
+  }
+
+  body.outplacement-print .print-flyer-column h2 {
+    font-size: 1.02rem;
+  }
+
+  body.outplacement-print .print-flyer-card {
+    padding: 0.64rem 0.74rem;
+    border-radius: 9px;
+  }
+
+  body.outplacement-print .print-flyer-card + .print-flyer-card {
+    margin-top: 1.1rem;
+  }
+
+  body.outplacement-print .print-flyer-card h3 {
+    font-size: 0.83rem;
+    line-height: 1.25;
+  }
+
+  body.outplacement-print .print-flyer-card p {
+    margin-top: 0.28rem;
+    font-size: 0.73rem;
+    line-height: 1.3;
+  }
+
+  body.outplacement-print .print-flyer-card-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  body.outplacement-print .print-flyer-trust {
+    padding: 0.6rem 0.72rem;
+  }
+
+  body.outplacement-print .print-flyer-trust h3 {
+    font-size: 0.84rem;
+    margin-bottom: 0.24rem;
+  }
+
+  body.outplacement-print .print-flyer-trust p {
+    font-size: 0.71rem;
+    line-height: 1.28;
+  }
+
+  body.outplacement-print .print-flyer-contact {
+    margin-top: 0.52rem;
+  }
+
+  body.outplacement-print .print-flyer-contact p {
+    margin-top: 0.2rem;
+    font-size: 0.71rem;
+    line-height: 1.25;
+  }
+
+  body.outplacement-print .print-flyer-note {
+    margin-top: 0.34rem;
+    font-size: 0.62rem;
+    line-height: 1.24;
+  }
+
+  body.outplacement-print .print-flyer-footer {
+    margin-top: 0.5rem;
+    padding-top: 0.12rem;
+  }
 }
