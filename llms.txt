@@ -8,7 +8,7 @@ Contact: hello@jobalchemist.tech
 Apply with confidence, not guesswork.
 
 ## What JobAlchemist does
-JobAlchemist helps job seekers decode job ads, assess fit and gaps, and generate tailored CV and cover letter drafts.
+JobAlchemist helps job seekers analyse job ads, check fit, and tailor stronger CVs and cover letters with clearer rationale.
 
 ## Who it is for
 Individual job seekers who want role-specific guidance instead of generic AI outputs.
@@ -38,4 +38,4 @@ Individual job seekers who want role-specific guidance instead of generic AI out
 - AI outputs are assistive and should be reviewed by users before submission.
 
 ## Last updated
-2026-03-13
+2026-03-14
