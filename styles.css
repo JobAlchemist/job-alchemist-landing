@@ -1457,6 +1457,13 @@ header .signup p#signup-message1 {
   color: var(--text-subtle);
 }
 
+.call-cta .pricing-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.75rem 0 1rem;
+}
+
 .outplacement-cta,
 .print-cta {
   display: inline-flex;
@@ -1966,6 +1973,15 @@ header .signup p#signup-message1 {
   font-weight: 600;
 }
 
+.print-flyer-contact .print-flyer-signoff {
+  margin-top: 0.65rem;
+}
+
+.print-flyer-contact .print-flyer-signoff-role {
+  display: block;
+  margin-top: 0.14rem;
+}
+
 .print-flyer-contact a {
   color: var(--secondary);
   text-decoration: none;
@@ -2078,6 +2094,14 @@ header .signup p#signup-message1 {
     margin-top: 0.2rem;
     font-size: 0.71rem;
     line-height: 1.25;
+  }
+
+  body.outplacement-print .print-flyer-contact .print-flyer-signoff {
+    margin-top: 0.42rem;
+  }
+
+  body.outplacement-print .print-flyer-contact .print-flyer-signoff-role {
+    margin-top: 0.1rem;
   }
 
   body.outplacement-print .print-flyer-note {
