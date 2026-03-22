@@ -5,7 +5,7 @@ Product app: https://app.jobalchemist.tech/
 Contact: hello@jobalchemist.tech
 
 ## Tagline
-Apply with confidence, not guesswork.
+Apply with clarity. Not hope.
 
 ## What JobAlchemist does
 JobAlchemist helps job seekers analyse job ads, check fit, and tailor stronger CVs and cover letters with clearer rationale.
@@ -38,4 +38,4 @@ Individual job seekers who want role-specific guidance instead of generic AI out
 - AI outputs are assistive and should be reviewed by users before submission.
 
 ## Last updated
-2026-03-14
+2026-03-23
