@@ -2220,10 +2220,11 @@ header .signup p#signup-message1 {
 
 .landing-page .proof-pair-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 1rem;
-  max-width: 900px;
+  max-width: 920px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .landing-page .proof-pair-card {
@@ -2316,8 +2317,8 @@ header .signup p#signup-message1 {
 }
 
 .landing-page .problem-section .problem-intro {
-  font-weight: 700;
-  color: var(--text-muted);
+  font-weight: 400;
+  color: var(--text-strong);
 }
 
 .landing-page .problem-section .problem-pivot {
@@ -2333,7 +2334,7 @@ header .signup p#signup-message1 {
 .landing-page .problem-section .problem-close {
   margin-top: 1.25rem;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 400;
   color: var(--text-muted);
 }
 
