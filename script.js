@@ -1,5 +1,11 @@
 // Wait for the DOM to be fully loaded before running scripts
 document.addEventListener('DOMContentLoaded', () => {
+  // Keep landing-page scoped CSS active even if the body class is missing in a stale/cached HTML copy.
+  const hasLandingMarkup = Boolean(document.querySelector('.hero-main') && document.querySelector('.proof-pair-section'));
+  if (hasLandingMarkup && document.body && !document.body.classList.contains('landing-page')) {
+    document.body.classList.add('landing-page');
+  }
+
   const navToggle = document.querySelector('.nav-toggle');
   const navMenu = document.querySelector('.nav-menu');
   const navPanel = document.querySelector('.nav-panel') || navMenu;
