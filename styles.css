@@ -2859,6 +2859,8 @@ header .signup p#signup-message1 {
   cursor: pointer;
   position: relative;
   padding-right: 1.25rem;
+  font-weight: 600;
+  color: var(--text-strong);
 }
 
 .landing-page #faq summary::-webkit-details-marker {
@@ -2882,7 +2884,8 @@ header .signup p#signup-message1 {
   margin: 0;
   display: inline;
   font-size: 1rem;
-  color: var(--secondary);
+  color: inherit;
+  font-weight: inherit;
 }
 
 .landing-page #faq details p {

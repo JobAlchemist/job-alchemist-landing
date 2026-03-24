@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-NZ">
 <head>
   <meta charset="UTF-8">
@@ -14,7 +14,7 @@
   <meta property="og:title" content="JobAlchemist for Students | Apply with confidence, not guesswork">
   <meta property="og:description" content="For students and first-job seekers: understand job ads, check fit, and create tailored CV and cover letter drafts that reflect your real experience.">
   <meta property="og:url" content="https://www.jobalchemist.tech/students.html">
-  <meta property="og:updated_time" content="2026-03-13T00:00:00+13:00">
+  <meta property="og:updated_time" content="2026-03-23T00:00:00+13:00">
   <meta property="og:image" content="https://www.jobalchemist.tech/site-assests/JobAlchemist-unfurl-main-image.png">
   <meta property="og:image:alt" content="JobAlchemist student landing page preview">
   <meta name="twitter:card" content="summary_large_image">
@@ -24,6 +24,761 @@
   <link rel="icon" type="image/png" href="site-assests/ja-favicon.png">
   <link rel="stylesheet" href="styles.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    .students-page .nav-menu .nav-spacer {
+      flex: 1 1 auto;
+      pointer-events: none;
+    }
+
+    .students-page .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .students-page .hero-actions .pricing-cta,
+    .students-page .hero-actions .hero-secondary-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
+      padding: 0 1.2rem;
+      margin: 0;
+      box-sizing: border-box;
+      line-height: 1.2;
+    }
+
+    .students-page .hero-secondary-cta {
+      border: 1px solid var(--border);
+      border-radius: var(--cta-radius);
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--secondary);
+      background: var(--bg);
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .students-page .hero-secondary-cta:hover {
+      border-color: var(--primary);
+      background-color: var(--surface-alt);
+    }
+
+    .students-page .hero-microcopy {
+      margin: 0.85rem 0 0;
+      color: var(--text-subtle);
+      font-size: 0.95rem;
+    }
+
+    .students-page #hero.hero-section {
+      padding-bottom: 1.5rem;
+    }
+
+    .students-page #student-principles .section-shell {
+      padding-top: 0.75rem;
+    }
+
+    .students-page #student-principles h2 {
+      margin-top: 0;
+    }
+
+    .students-page .hero-content .subheadline {
+      margin: 0;
+    }
+
+    .students-page .hero-bridge {
+      margin: 0.9rem 0;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .students-page .section-shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: var(--section-pad) 1rem;
+    }
+
+    .students-page .section-shell h2,
+    .students-page .section-shell > p {
+      text-align: center;
+    }
+
+    .students-page .section-lead {
+      margin: 0.65rem auto 0;
+      max-width: 740px;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .students-page .principles-grid,
+    .students-page .audience-grid,
+    .students-page .teacher-grid,
+    .students-page .closing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .students-page .principle-card,
+    .students-page .audience-card,
+    .students-page .teacher-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--bg);
+      padding: 1.1rem;
+      box-shadow: 0 6px 14px var(--shadow);
+    }
+
+    .students-page .principle-card--highlight {
+      background: var(--bg);
+    }
+
+    .students-page .principle-icon {
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+
+    .students-page .principle-card h3,
+    .students-page .teacher-card h3 {
+      margin: 0.6rem 0 0.55rem;
+      font-size: 1.05rem;
+      line-height: 1.35;
+      color: var(--secondary);
+    }
+
+    .students-page .principle-card p,
+    .students-page .teacher-card p {
+      margin: 0;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .students-page .proof-section .proof-card {
+      background: var(--bg);
+    }
+
+    .students-page .workflow-section {
+      background: var(--bg);
+    }
+
+    .students-page .workflow-section .workflow-shell {
+      max-width: 920px;
+      text-align: center;
+    }
+
+    .students-page .workflow-section .section-subheading {
+      text-align: center;
+      color: var(--text-muted);
+      max-width: 850px;
+      margin: 0.7rem auto 1.4rem;
+      line-height: 1.65;
+    }
+
+    .students-page .workflow-tabs-wrap {
+      margin-top: 1.1rem;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .students-page .workflow-mobile-meta,
+    .students-page .workflow-mobile-actions,
+    .students-page .workflow-dots-mobile {
+      display: none;
+    }
+
+    .students-page .workflow-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.6rem;
+    }
+
+    .students-page .workflow-tab {
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text-muted);
+      border-radius: 10px;
+      padding: 0.65rem 0.75rem;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      min-height: 56px;
+      transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .students-page .workflow-tab:hover {
+      border-color: #9bb2e4;
+    }
+
+    .students-page .workflow-tab:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    .students-page .workflow-tab.is-active {
+      border-color: var(--primary);
+      background: #ecf2ff;
+      color: var(--secondary);
+    }
+
+    .students-page .workflow-tab-number {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 999px;
+      border: 1px solid #bbcae8;
+      color: #5b6f99;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .students-page .workflow-tab.is-active .workflow-tab-number {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: #ffffff;
+    }
+
+    .students-page .workflow-tab-text {
+      font-size: 0.87rem;
+      letter-spacing: 0.01em;
+      line-height: 1.25;
+    }
+
+    .students-page .workflow-panel-frame {
+      margin-top: 0.8rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px var(--shadow);
+      height: 260px;
+      overflow: hidden;
+    }
+
+    .students-page .workflow-panel {
+      display: none;
+      height: 100%;
+      overflow-y: auto;
+      padding: 0.9rem 1rem;
+      text-align: left;
+    }
+
+    .students-page .workflow-panel.is-active {
+      display: block;
+    }
+
+    .students-page .workflow-panel .step-label {
+      margin: 0;
+      color: var(--primary);
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .students-page .workflow-panel .step-heading {
+      margin: 0.5rem 0 0.65rem;
+      color: var(--secondary);
+      font-weight: 700;
+    }
+
+    .students-page .workflow-panel p {
+      margin: 0.5rem 0 0;
+      line-height: 1.58;
+      color: var(--text-muted);
+    }
+
+    .students-page .workflow-dots {
+      margin-top: 0.7rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.45rem;
+    }
+
+    .students-page .workflow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #c5ccda;
+      opacity: 0.85;
+      display: inline-block;
+    }
+
+    .students-page .workflow-dot.is-active {
+      background: var(--secondary);
+      opacity: 1;
+    }
+
+    .students-page .audience-section {
+      background: var(--surface);
+    }
+
+    .students-page .audience-section .section-subheading {
+      text-align: center;
+      color: var(--text-muted);
+      max-width: 880px;
+      margin: 0.7rem auto 1.4rem;
+      line-height: 1.65;
+    }
+
+    .students-page .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .students-page .audience-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.15rem;
+      box-shadow: 0 4px 10px var(--shadow);
+    }
+
+    .students-page .audience-card h3 {
+      margin: 0;
+      color: var(--secondary);
+    }
+
+    .students-page .audience-card p {
+      margin: 0.65rem 0 0;
+      color: var(--text-muted);
+      line-height: 1.68;
+      font-size: 0.875rem;
+    }
+
+    .students-page .audience-card .audience-hook {
+      margin: 0.95rem 0 0.45rem;
+      font-size: 1.08rem;
+      line-height: 1.45;
+      font-weight: 450;
+      color: var(--text-strong);
+    }
+
+    .students-page .audience-card .audience-hook + p {
+      margin-top: 0;
+    }
+
+    .students-page .disqualifier-line {
+      margin: 1rem auto 0;
+      color: var(--text-subtle);
+      max-width: 880px;
+      text-align: center;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .students-page #for-teachers {
+      background: #f0f4ff;
+      border-top: 1px solid #d7e3ff;
+      border-bottom: 1px solid #d7e3ff;
+    }
+
+    .students-page .teacher-shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: var(--section-pad) 1rem;
+    }
+
+    .students-page .teacher-eyebrow {
+      display: inline-block;
+      background: #dfe9ff;
+      color: #1e3a8a;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 0.3rem 0.7rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .students-page .teacher-shell h2 {
+      margin-top: 0;
+    }
+
+    .students-page .teacher-shell > p {
+      color: var(--text-muted);
+      line-height: 1.65;
+      max-width: 860px;
+      margin: 0.75rem 0 0;
+    }
+
+    .students-page .teacher-shell .teacher-intro {
+      max-width: none;
+      margin-top: 0.75rem;
+    }
+
+    .students-page .teacher-shell .teacher-outro {
+      max-width: none;
+    }
+
+    .students-page .teacher-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 1rem;
+    }
+
+    .students-page .teacher-privacy-note {
+      margin-top: 1rem;
+      background: var(--bg);
+      border: 1px solid #c6d9ff;
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .students-page .teacher-privacy-note strong {
+      color: var(--secondary);
+    }
+
+    .students-page .teacher-cta {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1rem;
+      border: 1px solid var(--secondary);
+      border-radius: var(--cta-radius);
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 600;
+      background: transparent;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .students-page .teacher-cta:hover {
+      background: rgba(37, 99, 235, 0.08);
+      color: var(--secondary);
+    }
+
+    .students-page #faq {
+      padding: var(--section-pad) 1rem;
+    }
+
+    .students-page #faq .faq-shell {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .students-page #faq h2 {
+      text-align: center;
+      margin: 0;
+    }
+
+    .students-page .faq-track-title {
+      margin: 1.5rem 0 0.9rem;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-subtle);
+      font-weight: 700;
+    }
+
+    .students-page .faq-divider {
+      margin-top: 1.25rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .students-page #faq details {
+      background: var(--surface-soft);
+      border-radius: 8px;
+      padding: 0.95rem 1.15rem;
+      margin-bottom: 0.85rem;
+      border: 1px solid var(--border-light);
+      text-align: left;
+    }
+
+    .students-page #faq summary {
+      list-style: none;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      padding-right: 1.2rem;
+    }
+
+    .students-page #faq summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .students-page #faq summary::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: var(--primary);
+    }
+
+    .students-page #faq details[open] summary::after {
+      content: '-';
+    }
+
+    .students-page #faq p {
+      margin: 0.7rem 0 0;
+      color: var(--text-muted);
+      line-height: 1.62;
+    }
+
+    .students-page .closing-cta-section {
+      background: #14213d;
+      color: #dfe8ff;
+      padding: var(--section-pad) 1rem;
+    }
+
+    .students-page .closing-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .students-page .closing-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 0;
+    }
+
+    .students-page .closing-card {
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+      padding: 1.2rem;
+    }
+
+    .students-page .closing-label {
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.75);
+      font-weight: 700;
+    }
+
+    .students-page .closing-card h3 {
+      margin: 0.6rem 0;
+      color: #ffffff;
+      font-size: 1.25rem;
+      line-height: 1.35;
+    }
+
+    .students-page .closing-card p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.6;
+    }
+
+    .students-page .closing-student-cta,
+    .students-page .closing-teacher-cta {
+      display: inline-block;
+      margin-top: 1rem;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: var(--cta-radius);
+      padding: 0.62rem 1rem;
+    }
+
+    .students-page .closing-student-cta {
+      background: #ffffff;
+      color: #14213d;
+      border: 1px solid #ffffff;
+    }
+
+    .students-page .closing-teacher-cta {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+    }
+
+    .students-page .closing-teacher-cta:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+
+    .students-page .footer-top {
+      gap: 1.5rem;
+    }
+
+    .students-page .footer-links-group {
+      flex: 0 1 180px;
+      min-width: 150px;
+    }
+
+    .students-page .footer-links-group h4 {
+      margin: 0 0 0.8rem;
+    }
+
+    .students-page .footer-links-group a {
+      display: block;
+      margin-bottom: 0.45rem;
+      color: var(--text-strong);
+      text-decoration: none;
+    }
+
+    @media (max-width: 1024px) {
+      .students-page .workflow-tabs {
+        display: flex;
+        gap: 0.55rem;
+        overflow-x: auto;
+        padding-bottom: 0.2rem;
+        scrollbar-width: thin;
+      }
+
+      .students-page .workflow-tab {
+        flex: 0 0 220px;
+      }
+
+      .students-page .audience-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .students-page .principles-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .students-page .teacher-grid,
+      .students-page .closing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .students-page .nav-menu .nav-spacer {
+        display: none;
+      }
+
+      .students-page .nav-menu li a.login-button,
+      .students-page .nav-menu li a.cta-button {
+        width: auto;
+      }
+
+      .students-page .hero-actions {
+        flex-direction: column;
+        width: min(360px, 100%);
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .students-page .hero-actions a {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .students-page .workflow-tab {
+        flex: 0 0 190px;
+        min-height: 52px;
+      }
+
+      .students-page .workflow-tab-text {
+        font-size: 0.84rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .students-page .workflow-tabs-wrap {
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 0.8rem;
+        background: var(--bg);
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+
+      .students-page .workflow-mobile-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.6rem;
+        padding: 0 0.1rem;
+        box-sizing: border-box;
+      }
+
+      .students-page .workflow-mobile-step {
+        margin: 0;
+        font-size: 0.94rem;
+        color: var(--text-subtle);
+        font-weight: 600;
+      }
+
+      .students-page .workflow-dots-mobile {
+        display: flex;
+        margin-top: 0;
+      }
+
+      .students-page .workflow-tabs {
+        display: none;
+      }
+
+      .students-page .workflow-panel-frame {
+        margin-top: 0;
+        border: 0;
+        box-shadow: none;
+        background: transparent;
+        height: auto;
+        overflow: visible;
+      }
+
+      .students-page .workflow-panel {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 1rem;
+        background: var(--bg);
+        overflow: visible;
+        height: auto;
+        box-sizing: border-box;
+      }
+
+      .students-page .workflow-mobile-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.7rem;
+        margin-top: 0.7rem;
+        padding: 0 0.1rem;
+        box-sizing: border-box;
+      }
+
+      .students-page .workflow-mobile-nav {
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: var(--bg);
+        color: var(--secondary);
+        font: inherit;
+        font-weight: 600;
+        padding: 0.58rem 0.8rem;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .students-page .workflow-mobile-nav[disabled] {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      .students-page .workflow-mobile-nav.is-prev::before {
+        content: "\2190\00A0";
+      }
+
+      .students-page .workflow-mobile-nav.is-next::after {
+        content: "\00A0\2192";
+      }
+
+      .students-page .workflow-tabs-wrap > .workflow-dots:not(.workflow-dots-mobile) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .students-page .principles-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -34,7 +789,9 @@
           "name": "JobAlchemist",
           "url": "https://www.jobalchemist.tech/",
           "logo": "https://www.jobalchemist.tech/site-assests/email_logo.svg",
-          "sameAs": ["https://www.linkedin.com/company/jobalchemist-ai/"]
+          "sameAs": [
+            "https://www.linkedin.com/company/jobalchemist-ai/"
+          ]
         },
         {
           "@type": "WebSite",
@@ -51,10 +808,10 @@
           "@id": "https://www.jobalchemist.tech/students.html#webpage",
           "url": "https://www.jobalchemist.tech/students.html",
           "name": "JobAlchemist for Students | Apply with confidence, not guesswork",
-          "headline": "Get your first job application right, without the guesswork",
-          "description": "Understand what a job is really asking for, see how well you match, and create stronger applications that sound like you.",
+          "headline": "Not sure what employers actually want? Now you can find out before you apply.",
+          "description": "JobAlchemist analyses the job ad and your experience - then gives you an honest picture of where you stand, what to highlight, and how to apply more clearly.",
           "inLanguage": "en-NZ",
-          "dateModified": "2026-03-13",
+          "dateModified": "2026-03-23",
           "isPartOf": {
             "@id": "https://www.jobalchemist.tech/#website"
           },
@@ -68,74 +825,34 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "What do I need to get started?",
+              "name": "What if I've never had a proper job?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "You need a CV to get CV feedback and build your profile, plus a job ad if you want job analysis, fit insights, and tailored drafts."
+                "text": "That's exactly what this is built for. We look at your real experience - school responsibilities, sport, volunteering, part-time or casual work, and projects - and show where it's relevant to the role. Not having a formal work history doesn't mean you have nothing to offer. It just means you need to show it differently."
               }
             },
             {
               "@type": "Question",
-              "name": "How does the CV analysis work?",
+              "name": "Will it work for part-time or casual work?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "We look at your CV the way an employer might. We check whether it is clear, easy to read, and relevant for the kinds of jobs you want. We also show where school, sport, volunteering, projects, and other experience can strengthen your application."
+                "text": "Yes. Retail, hospitality, babysitting, lawn mowing, anything where you showed up and did a job - it counts. We help you frame it in a way that's relevant to the role you're applying for."
               }
             },
             {
               "@type": "Question",
-              "name": "How does the job analysis work?",
+              "name": "Can I use it for apprenticeships and trades roles - not just office jobs?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "We analyse the job ad and pull together useful public information about the company so you can better understand the role, the workplace, and what the employer may care about most."
+                "text": "Yes. The analysis works for any role with a job ad. Whether you're applying for a trade apprenticeship, a hospitality position, a retail role, or an office job - the process is the same."
               }
             },
             {
               "@type": "Question",
-              "name": "How does the fit analysis work?",
+              "name": "Will it make my application sound fake or like a robot wrote it?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "We compare your CV to the job and show where you match well, what may be missing, and what you could still use as evidence from school, life, or other experience. This helps you decide whether to apply and how to make a stronger case."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How do the CV and cover letter drafts work?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "We use your profile and the job ad to create role-specific drafts that are clearer, more relevant, and more believable. You also see what changed and why."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How is this different from just using ChatGPT?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "JobAlchemist is built for job applications, not general chat. It keeps your jobs, drafts, and fit insights connected, and gives you step-by-step guidance that is specific to each role."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Will this work if I do not have much job experience?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. That is exactly where it can help. We treat school, sport, volunteering, projects, and other real-life responsibilities as valid experience when they are relevant to the role."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What if I am not a strong fit for a role?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "We will tell you clearly and explain why, so you can decide whether to apply, improve your application, or spend your time on a better option."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Will this actually help me stand out?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "It can help you apply more clearly and more confidently by showing what matters for the role, what to change, and how to present your experience in a stronger way."
+                "text": "No - and this matters. The drafts are built around your actual experience, not a generic template. You also see a plain-English explanation of every change, so you understand it and can talk to it in an interview. If something doesn't sound like you, you change it. The goal is a stronger version of your voice, not a replacement for it."
               }
             },
             {
@@ -143,7 +860,63 @@
               "name": "How long does it take?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Usually a few minutes once your CV is uploaded."
+                "text": "Usually a few minutes once your CV is uploaded. The full workflow - job analysis, fit check, and tailored drafts - can be done in a single sitting."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is it free for students?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can analyse up to 3 roles end-to-end for free - no credit card required. That covers the full workflow: job ad analysis, fit check, and tailored CV and cover letter drafts. After that, there's a paid plan if you want to keep going."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What do I need to get started?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A CV - even a basic one - and a job ad you want to apply for. That's it."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is this appropriate for secondary school students?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The platform detects student accounts and adapts automatically - simpler language, more supportive framing, and output calibrated for applicants with limited work history. It's designed for Year 12 and 13 students and is currently being introduced to NZ schools through a Gateway programme partner."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does school or cohort access work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Students can sign up individually for free right now. For school-wide or cohort access - including managed setups for Gateway or careers programmes - get in touch via the contact form to discuss what's right for your context."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is student data private and secure?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Each student has their own account and only ever sees their own data. We use Supabase with row-level security, and all data is encrypted in transit and at rest. We do not sell or share data with third parties."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I see what my students are doing on the platform?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Not currently - there's no teacher dashboard. Each student account is private to them. If teacher-facing visibility is something you need for your programme, mention it when you get in touch and we can discuss what's possible."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does this fit with Gateway and careers programmes?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The workflow maps well to a structured class session: students bring a job ad, work through the analysis, review their fit, and produce draft application materials. JobAlchemist is currently being introduced to Gateway programmes in New Zealand. Get in touch to talk through how it could work in your programme."
               }
             }
           ]
@@ -171,12 +944,13 @@
         <span></span>
       </button>
       <ul class="nav-menu">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#pricing">Access</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#expanded-faq">FAQ</a></li>
-        <li><a href="students.html">For Students</a></li>
-        <li><a class="cta-button" href="https://forms.gle/u4qgg3M6NKFUoNZD9" target="_blank" rel="noopener noreferrer">Contact us to get started</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#for-teachers">For Teachers</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="https://www.jobalchemist.tech/index.html">Main site</a></li>
+        <li class="nav-spacer" aria-hidden="true"></li>
+        <li><a class="login-button" href="https://app.jobalchemist.tech/login">Login</a></li>
+        <li><a class="cta-button" href="https://app.jobalchemist.tech/signup">Try free &rarr;</a></li>
       </ul>
     </div>
   </nav>
@@ -184,148 +958,285 @@
   <section id="hero" class="hero-section">
     <div class="hero-content">
       <span class="eyebrow-pill">For students &amp; first-job seekers</span>
-      <h1>Get your first job application right, without the guesswork</h1>
-      <p class="subheadline">Understand what a job is really asking for, see how well you match, and create stronger applications that sound like you.</p>
-      <div class="signup">
-        <a class="pricing-cta" href="https://forms.gle/u4qgg3M6NKFUoNZD9" target="_blank" rel="noopener noreferrer">Contact us to get started</a>
+      <h1>Not sure what employers actually want?<br>Now you can find out before you apply.</h1>
+      <p class="subheadline">Paste the job ad and upload your CV. JobAlchemist shows what the role really needs, where your experience already fits, including school, sport, and volunteering, and how to tailor your CV and cover letter with clear guidance at every step.</p>
+      <div class="hero-actions">
+        <a class="pricing-cta" href="https://app.jobalchemist.tech/signup">Try it free &rarr;</a>
+        <a class="hero-secondary-cta" href="#for-teachers">For teachers and schools &darr;</a>
+      </div>
+      <p class="hero-microcopy">Analyse up to 3 roles end-to-end. No credit card required.</p>
+    </div>
+  </section>
+
+  <section id="student-principles">
+    <div class="section-shell">
+      <h2>Built differently for students</h2>
+      <p class="section-lead">Most tools will tell you what you want to hear. This one is designed to do something harder, and more useful.</p>
+      <div class="principles-grid">
+        <article class="principle-card">
+          <div class="principle-icon" aria-hidden="true">🔍</div>
+          <h3>It finds the experience you didn't know counted</h3>
+          <p>School leadership, sport, volunteering, part-time work, projects, these all matter to employers. The analysis is designed to surface what you already have, not just flag what's missing.</p>
+        </article>
+        <article class="principle-card">
+          <div class="principle-icon" aria-hidden="true">🎯</div>
+          <h3>It coaches, not just critiques</h3>
+          <p>You don't just get a score. You get practical guidance: how to read the job ad, what to strengthen in your CV, and how to talk about your experience in a way that lands. Every change comes with a reason.</p>
+        </article>
+        <article class="principle-card principle-card--highlight">
+          <div class="principle-icon" aria-hidden="true">⚖️</div>
+          <h3>Supportive, but it won't lie to you</h3>
+          <p>If a role requires a driver's licence and you don't have one, it will say so. If the fit is weak, you'll know before you invest the time. Honest feedback is more useful than hype, especially when you're just starting out.</p>
+        </article>
       </div>
     </div>
   </section>
 
   <section class="proof-section">
     <div class="proof-inner">
-      <h2>See how it works</h2>
-      <p class="proof-intro">Three real examples from the app, so you can see what you’ll get before you spend time applying.</p>
+      <h2>See what you'll get</h2>
+      <p class="proof-intro">Three real examples from the app, so you know what to expect before you start.</p>
       <div class="proof-grid">
         <div class="proof-card">
-          <a class="proof-image-link" href="site-assests/student-job-ad-analysis.png" data-image-modal="site-assests/student-job-ad-analysis.png" data-image-alt="Job ad analysis insights screenshot" data-image-title="Understand what the job ad really means" data-image-caption="Go beyond the buzzwords and see what the employer is likely looking for.">
+          <a class="proof-image-link" href="site-assests/student-job-ad-analysis.png" data-image-modal="site-assests/student-job-ad-analysis.png" data-image-alt="Job ad analysis insights screenshot" data-image-title="What the job ad is really asking for" data-image-caption="Job ads are written for experienced people and can feel confusing. JobAlchemist translates them into plain language so you actually know what you're applying for.">
             <img src="site-assests/student-job-ad-analysis.png" alt="Job ad analysis insights screenshot">
           </a>
-          <h3>Understand what the job ad really means</h3>
-          <p>Go beyond the buzzwords and vague phrases. See what the employer is likely looking for, what the job may actually involve, and what to watch out for.</p>
+          <h3>What the job ad is really asking for</h3>
+          <p>Job ads are written for experienced people and can feel confusing. JobAlchemist translates them into plain language so you actually know what you're applying for.</p>
         </div>
         <div class="proof-card">
-          <a class="proof-image-link" href="site-assests/student-job-fit-analysis.png" data-image-modal="site-assests/student-job-fit-analysis.png" data-image-alt="Job fit insights screenshot" data-image-title="See how well you match" data-image-caption="Find out where you already fit and what you can still apply for.">
+          <a class="proof-image-link" href="site-assests/student-job-fit-analysis.png" data-image-modal="site-assests/student-job-fit-analysis.png" data-image-alt="Job fit insights screenshot" data-image-title="Where you match, and where you don't" data-image-caption="See what you already bring to the role, what to show more clearly, and where you can still apply even if you don't tick every box. School, sport, and volunteering all count.">
             <img src="site-assests/student-job-fit-analysis.png" alt="Job fit insights screenshot">
           </a>
-          <h3>See how well you match</h3>
-          <p>Find out where you already fit, what you may need to show more clearly, and where you can still apply even if you do not tick every box.</p>
+          <h3>Where you match, and where you don't</h3>
+          <p>See what you already bring to the role, what to show more clearly, and where you can still apply even if you don't tick every box. School, sport, and volunteering all count.</p>
         </div>
         <div class="proof-card">
-          <a class="proof-image-link" href="site-assests/student-draft-application.png" data-image-modal="site-assests/student-draft-application.png" data-image-alt="Role-specific tailoring screenshot" data-image-title="Get role-specific CV and application drafts" data-image-caption="Clear guidance on what to change and why.">
+          <a class="proof-image-link" href="site-assests/student-draft-application.png" data-image-modal="site-assests/student-draft-application.png" data-image-alt="Role-specific tailoring screenshot" data-image-title="A draft that sounds like you" data-image-caption="Get a tailored CV and cover letter with a clear explanation of every change, so you understand what was adjusted and why, not just copy-paste a result.">
             <img src="site-assests/student-draft-application.png" alt="Role-specific tailoring screenshot">
           </a>
-          <h3>Get role-specific CV and application drafts</h3>
-          <p>Get tailored drafts based on the job, with clear guidance on what to change and why.</p>
+          <h3>A draft that sounds like you</h3>
+          <p>Get a tailored CV and cover letter with a clear explanation of every change, so you understand what was adjusted and why, not just copy-paste a result.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="features">
-    <div class="features-heading">
-      <h2>The JobAlchemist workflow</h2>
-    </div>
-    <div class="feature-box">
-      <i class="bi bi-search"></i>
-      <h3>Read between the lines before you apply</h3>
-      <p class="feature-headline">Know what you’re applying for</p>
-      <p>Job ads can be vague. We help you understand what the employer is really asking for, what kind of person they may want, what the day-to-day work could be like, and whether the role is worth your time.</p>
-    </div>
-    <div class="feature-box">
-      <i class="bi bi-file-earmark-text"></i>
-      <h3>A clear fit check</h3>
-      <p class="feature-headline">Stop second-guessing yourself</p>
-      <p>See where you already match the role, where you have gaps, and what matters most. We look at your CV and your real experience from school, sport, volunteering, projects, and life, not just formal work history.</p>
-    </div>
-    <div class="feature-box">
-      <i class="bi bi-chat-square-text"></i>
-      <h3>Applications that sound like you</h3>
-      <p class="feature-headline">Tailored CV + Cover Letter Drafts</p>
-      <p>Get CV and cover letter drafts shaped for the role, with language that feels natural and believable. No generic templates. No weird corporate wording. Just stronger applications with clearer reasons behind each change.</p>
-    </div>
-    <div class="feature-box">
-      <i class="bi bi-kanban"></i>
-      <h3>Keep each job, draft, and insight together</h3>
-      <p class="feature-headline">Everything connected in one place</p>
-      <p>Store job ads, fit checks, and tailored versions together so you do not lose track of what you changed, what you learned, or which version you sent for each role.</p>
-    </div>
-  </section>
+  <section id="how-it-works" class="workflow-section">
+    <div class="section-shell workflow-shell">
+      <h2>How it works</h2>
+      <p class="section-subheading">A clear four-step process from job ad to application draft, with honest fit insight in between.</p>
 
-  <section id="pricing" class="pricing-section">
-    <div class="pricing-inner">
-      <h2>Access</h2>
-      <p class="pricing-intro">Simple access for schools and education partners. Get in touch to discuss the right setup for your students and programmes.</p>
-      <div class="pricing-cta-row">
-        <a class="pricing-cta" href="https://forms.gle/u4qgg3M6NKFUoNZD9" target="_blank" rel="noopener noreferrer">Contact us to get started</a>
-      </div>
-    </div>
-  </section>
+      <div class="workflow-tabs-wrap" data-workflow-tabs>
+        <div class="workflow-mobile-meta" aria-live="polite">
+          <p class="workflow-mobile-step" data-workflow-step-counter>Step 1 of 4</p>
+          <div class="workflow-dots workflow-dots-mobile" aria-hidden="true">
+            <span class="workflow-dot is-active" data-workflow-dot="0"></span>
+            <span class="workflow-dot" data-workflow-dot="1"></span>
+            <span class="workflow-dot" data-workflow-dot="2"></span>
+            <span class="workflow-dot" data-workflow-dot="3"></span>
+          </div>
+        </div>
 
-  <section id="testimonials">
-    <h2>What early users are saying</h2>
-    <p class="testimonials-intro">People are already using JobAlchemist to apply with more clarity and confidence.</p>
-    <div class="quotes">
-      <div class="quote">
-        <i class="bi bi-quote"></i>
-        <div class="quote-text">"I love the clear information JobAlchemist provides, its super useful!"</div>
-        <div class="quote-footer">
-          <div class="text">Year 12 student, Wellington</div>
+        <div class="workflow-tabs" role="tablist" aria-label="Workflow steps">
+          <button type="button" class="workflow-tab is-active" id="workflow-tab-1" role="tab" aria-selected="true" aria-controls="workflow-panel-1" data-workflow-tab="0">
+            <span class="workflow-tab-number">1</span>
+            <span class="workflow-tab-text">Understand the job</span>
+          </button>
+          <button type="button" class="workflow-tab" id="workflow-tab-2" role="tab" aria-selected="false" aria-controls="workflow-panel-2" data-workflow-tab="1" tabindex="-1">
+            <span class="workflow-tab-number">2</span>
+            <span class="workflow-tab-text">See your fit</span>
+          </button>
+          <button type="button" class="workflow-tab" id="workflow-tab-3" role="tab" aria-selected="false" aria-controls="workflow-panel-3" data-workflow-tab="2" tabindex="-1">
+            <span class="workflow-tab-number">3</span>
+            <span class="workflow-tab-text">Get role drafts</span>
+          </button>
+          <button type="button" class="workflow-tab" id="workflow-tab-4" role="tab" aria-selected="false" aria-controls="workflow-panel-4" data-workflow-tab="3" tabindex="-1">
+            <span class="workflow-tab-number">4</span>
+            <span class="workflow-tab-text">Keep track</span>
+          </button>
+        </div>
+
+        <div class="workflow-panel-frame">
+          <article class="workflow-panel is-active" id="workflow-panel-1" role="tabpanel" aria-labelledby="workflow-tab-1" data-workflow-panel="0">
+            <h3 class="step-label">Step 1</h3>
+            <h4 class="step-heading">Understand what the job actually wants</h4>
+            <p>Job ads are often vague, or written for someone with more experience than you have.</p>
+            <p>We break down what the employer is really asking for, the kind of person, the day-to-day work, and whether it's worth your time.</p>
+          </article>
+
+          <article class="workflow-panel" id="workflow-panel-2" role="tabpanel" aria-labelledby="workflow-tab-2" data-workflow-panel="1" hidden>
+            <h3 class="step-label">Step 2</h3>
+            <h4 class="step-heading">See your honest fit</h4>
+            <p>This is where most people get stuck: "I don't have enough experience."</p>
+            <p>We look at your real experience, school, sport, part-time work, volunteering, projects, not just formal job history.</p>
+            <p>You'll see exactly where you match and where you don't, so you can decide whether to apply and how to make your case.</p>
+          </article>
+
+          <article class="workflow-panel" id="workflow-panel-3" role="tabpanel" aria-labelledby="workflow-tab-3" data-workflow-panel="2" hidden>
+            <h3 class="step-label">Step 3</h3>
+            <h4 class="step-heading">Get drafts that sound like you</h4>
+            <p>We generate a tailored CV and cover letter for the specific role.</p>
+            <p>No corporate-speak. No generic templates.</p>
+            <p>Just clearer applications with a plain-English explanation of what changed and why, so you can own it in an interview, not just submit it.</p>
+          </article>
+
+          <article class="workflow-panel" id="workflow-panel-4" role="tabpanel" aria-labelledby="workflow-tab-4" data-workflow-panel="3" hidden>
+            <h3 class="step-label">Step 4</h3>
+            <h4 class="step-heading">Keep everything in one place</h4>
+            <p>Every job, fit check, and draft stays connected.</p>
+            <p>So when you come back to a role, or apply to ten of them, you don't lose track of what you changed, what you learned, or which version you sent.</p>
+          </article>
+        </div>
+
+        <div class="workflow-mobile-actions">
+          <button type="button" class="workflow-mobile-nav is-prev" data-workflow-prev>Prev</button>
+          <button type="button" class="workflow-mobile-nav is-next" data-workflow-next>Next</button>
+        </div>
+
+        <div class="workflow-dots" aria-hidden="true">
+          <span class="workflow-dot is-active" data-workflow-dot="0"></span>
+          <span class="workflow-dot" data-workflow-dot="1"></span>
+          <span class="workflow-dot" data-workflow-dot="2"></span>
+          <span class="workflow-dot" data-workflow-dot="3"></span>
         </div>
       </div>
-      <div class="quote">
-        <i class="bi bi-quote"></i>
-        <div class="quote-text">"It helped me understand what the role was really about, love it!"</div>
-        <div class="quote-footer">
-          <div class="text">Year 12 student, Wellington</div>
+    </div>
+  </section>
+
+  <section id="who-its-for" class="audience-section">
+    <div class="section-shell">
+      <h2>Who it's for</h2>
+      <p class="section-subheading audience-subheading">For students applying deliberately: understand your fit first, then send stronger applications.</p>
+      <div class="audience-grid">
+        <article class="audience-card">
+          <h3>First-time applicants</h3>
+          <p class="audience-hook">Your time is finite. Not knowing where you stand before you apply is expensive.</p>
+          <p>If you've spent hours on an application and heard nothing back, this tells you what to do differently, before you invest the time.</p>
+        </article>
+        <article class="audience-card">
+          <h3>Students with no formal work history</h3>
+          <p class="audience-hook">You have more to offer than you think. It just doesn't map neatly to the job ad.</p>
+          <p>School, sport, volunteering, and part-time work all count as real experience when they're relevant. We help you see where, and how to say it clearly.</p>
+        </article>
+        <article class="audience-card">
+          <h3>School leavers figuring out where to start</h3>
+          <p class="audience-hook">It will tell you something the silence won't.</p>
+          <p>Whether you're applying for your first job, an apprenticeship, or a trades role, you get an honest picture of where you stand and what to do next.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="for-teachers">
+    <div class="teacher-shell">
+      <span class="teacher-eyebrow">For teachers &amp; schools</span>
+      <h2>Designed to work in a real programme context</h2>
+      <p class="teacher-intro">JobAlchemist is great fit for the Gateway programmes in New Zealand. If you're a careers teacher or coordinator looking for something you can show students with confidence, here's what you need to know.</p>
+      <div class="teacher-grid">
+        <article class="teacher-card">
+          <h3>Encouraging, it finds what students already bring</h3>
+          <p>The analysis is built to surface relevant experience from school, sport, volunteering, and projects, not just flag the absence of formal work history. Students often come away surprised by how much they already have to offer.</p>
+        </article>
+        <article class="teacher-card">
+          <h3>Coaching, not just output</h3>
+          <p>Every fit assessment includes practical guidance: how to interpret the job ad, what to strengthen in a CV, and how to frame experience in a way that's relevant to the role. Students aren't just handed a draft, they learn something from the process.</p>
+        </article>
+        <article class="teacher-card">
+          <h3>Honest, because trust matters more than hype</h3>
+          <p>If a role requires a driver's licence and the student doesn't have one, the tool will say so. If the fit is genuinely weak, it says that too. In an educational setting, false confidence creates bigger problems down the line. Students can handle honesty when it's delivered clearly and supportively.</p>
+        </article>
+        <article class="teacher-card">
+          <h3>Adapted automatically for students</h3>
+          <p>When a student signs up, the platform calibrates its output: simpler language, more explanation, more encouragement. No configuration needed from you. It works for Gateway, careers class, or direct student use.</p>
+        </article>
+      </div>
+      <div class="teacher-privacy-note"><strong>A note on student data:</strong> JobAlchemist uses Supabase for secure data storage with row-level security, each student only ever sees their own data. Data is encrypted in transit and at rest. Students sign up individually with their own accounts. We do not sell or share user data with third parties.</div>
+      <p class="teacher-outro">School and cohort access is handled separately from individual signups. Get in touch to discuss what the right setup looks like for your students and programme.</p>
+      <a class="teacher-cta" href="https://forms.gle/u4qgg3M6NKFUoNZD9" target="_blank" rel="noopener noreferrer">Get in touch about school access &rarr;</a>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="faq-shell">
+      <h2>FAQs</h2>
+
+      <p class="faq-track-title">Student questions</p>
+      <div class="faq-items">
+        <details>
+          <summary>What if I've never had a proper job?</summary>
+          <p>That's exactly what this is built for. We look at your real experience, school responsibilities, sport, volunteering, part-time or casual work, and projects, and show where it's relevant to the role. Not having a formal work history doesn't mean you have nothing to offer. It just means you need to show it differently.</p>
+        </details>
+        <details>
+          <summary>Will it work for part-time or casual work?</summary>
+          <p>Yes. Retail, hospitality, babysitting, lawn mowing, anything where you showed up and did a job, it counts. We help you frame it in a way that's relevant to the role you're applying for.</p>
+        </details>
+        <details>
+          <summary>Can I use it for apprenticeships and trades roles, not just office jobs?</summary>
+          <p>Yes. The analysis works for any role with a job ad. Whether you're applying for a trade apprenticeship, a hospitality position, a retail role, or an office job, the process is the same.</p>
+        </details>
+        <details>
+          <summary>Will it make my application sound fake or like a robot wrote it?</summary>
+          <p>No, and this matters. The drafts are built around your actual experience, not a generic template. You also see a plain-English explanation of every change, so you understand it and can talk to it in an interview. If something doesn't sound like you, you change it. The goal is a stronger version of your voice, not a replacement for it.</p>
+        </details>
+        <details>
+          <summary>How long does it take?</summary>
+          <p>Usually a few minutes once your CV is uploaded. The full workflow, job analysis, fit check, and tailored drafts, can be done in a single sitting.</p>
+        </details>
+        <details>
+          <summary>Is it free for students?</summary>
+          <p>You can analyse up to 3 roles end-to-end for free, no credit card required. That covers the full workflow: job ad analysis, fit check, and tailored CV and cover letter drafts. After that, there's a paid plan if you want to keep going.</p>
+        </details>
+        <details>
+          <summary>What do I need to get started?</summary>
+          <p>A CV, even a basic one, and a job ad you want to apply for. That's it.</p>
+        </details>
+      </div>
+
+      <div class="faq-divider">
+        <p class="faq-track-title">For teachers and schools</p>
+        <div class="faq-items">
+          <details>
+            <summary>Is this appropriate for secondary school students?</summary>
+            <p>Yes. The platform detects student accounts and adapts automatically, simpler language, more supportive framing, and output calibrated for applicants with limited work history. It's designed for Year 12 and 13 students and is currently being introduced to NZ schools through a Gateway programme partner.</p>
+          </details>
+          <details>
+            <summary>How does school or cohort access work?</summary>
+            <p>Students can sign up individually for free right now. For school-wide or cohort access, including managed setups for Gateway or careers programmes, get in touch via the contact form to discuss what's right for your context.</p>
+          </details>
+          <details>
+            <summary>Is student data private and secure?</summary>
+            <p>Yes. Each student has their own account and only ever sees their own data. We use Supabase with row-level security, and all data is encrypted in transit and at rest. We do not sell or share data with third parties.</p>
+          </details>
+          <details>
+            <summary>Can I see what my students are doing on the platform?</summary>
+            <p>Not currently, there's no teacher dashboard. Each student account is private to them. If teacher-facing visibility is something you need for your programme, mention it when you get in touch and we can discuss what's possible.</p>
+          </details>
+          <details>
+            <summary>How does this fit with Gateway and careers programmes?</summary>
+            <p>The workflow maps well to a structured class session: students bring a job ad, work through the analysis, review their fit, and produce draft application materials. JobAlchemist is currently being introduced to Gateway programmes in New Zealand. Get in touch to talk through how it could work in your programme.</p>
+          </details>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="expanded-faq">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-items">
-      <details>
-        <summary>What do I need to get started?</summary>
-        <p>You need a CV to get CV feedback and build your profile, plus a job ad if you want job analysis, fit insights, and tailored drafts.</p>
-      </details>
-      <details>
-        <summary>How does the CV analysis work?</summary>
-        <p>We look at your CV the way an employer might. We check whether it is clear, easy to read, and relevant for the kinds of jobs you want. We also show where school, sport, volunteering, projects, and other experience can strengthen your application.</p>
-      </details>
-      <details>
-        <summary>How does the job analysis work?</summary>
-        <p>We analyse the job ad and pull together useful public information about the company so you can better understand the role, the workplace, and what the employer may care about most.</p>
-      </details>
-      <details>
-        <summary>How does the fit analysis work?</summary>
-        <p>We compare your CV to the job and show where you match well, what may be missing, and what you could still use as evidence from school, life, or other experience. This helps you decide whether to apply and how to make a stronger case.</p>
-      </details>
-      <details>
-        <summary>How do the CV and cover letter drafts work?</summary>
-        <p>We use your profile and the job ad to create role-specific drafts that are clearer, more relevant, and more believable. You also see what changed and why.</p>
-      </details>
-      <details>
-        <summary>How is this different from just using ChatGPT?</summary>
-        <p>JobAlchemist is built for job applications, not general chat. It keeps your jobs, drafts, and fit insights connected, and gives you step-by-step guidance that is specific to each role.</p>
-      </details>
-      <details>
-        <summary>Will this work if I do not have much job experience?</summary>
-        <p>Yes. That is exactly where it can help. We treat school, sport, volunteering, projects, and other real-life responsibilities as valid experience when they are relevant to the role.</p>
-      </details>
-      <details>
-        <summary>What if I am not a strong fit for a role?</summary>
-        <p>We will tell you clearly and explain why, so you can decide whether to apply, improve your application, or spend your time on a better option.</p>
-      </details>
-      <details>
-        <summary>Will this actually help me stand out?</summary>
-        <p>It can help you apply more clearly and more confidently by showing what matters for the role, what to change, and how to present your experience in a stronger way.</p>
-      </details>
-      <details>
-        <summary>How long does it take?</summary>
-        <p>Usually a few minutes once your CV is uploaded.</p>
-      </details>
+  <section class="closing-cta-section">
+    <div class="closing-wrap">
+      <div class="closing-grid">
+        <article class="closing-card">
+          <p class="closing-label">For students</p>
+          <h3>Try it free, your first 3 roles are on us</h3>
+          <p>No credit card. No setup. Just upload your CV and a job ad and see where you stand.</p>
+          <a class="closing-student-cta" href="https://app.jobalchemist.tech/signup">Try it free &rarr;</a>
+        </article>
+        <article class="closing-card">
+          <p class="closing-label">For teachers &amp; schools</p>
+          <h3>Get in touch about school access</h3>
+          <p>Gateway programmes, careers classes, cohort access, we'll find the right setup for your students.</p>
+          <a class="closing-teacher-cta" href="https://forms.gle/u4qgg3M6NKFUoNZD9" target="_blank" rel="noopener noreferrer">Get in touch &rarr;</a>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -341,28 +1252,38 @@
   </div>
 
   <footer>
-  <div class="footer-top">
-    <div class="footer-about">
-      <div class="footer-logo">
-        <img src="site-assests/email_logo.svg" alt="JobAlchemist logo">
+    <div class="footer-top">
+      <div class="footer-about">
+        <div class="footer-logo">
+          <img src="site-assests/email_logo.svg" alt="JobAlchemist logo">
+        </div>
+        <p><span class="footer-tagline">Apply with clarity. Not hope.</span><br>
+        JobAlchemist analyses job ads, checks your real fit, and builds tailored CV and cover letter drafts with clear reasoning at every step - so you apply stronger, and know why.</p>
       </div>
-      <p><span class="footer-tagline">Apply with more confidence, and less guesswork.</span><br>
-      JobAlchemist helps students and first-job seekers understand job ads, improve their CV, see their fit more clearly, and create tailored applications that sound like them.</p>
+
+      <div class="footer-links-group">
+        <h4>Company</h4>
+        <a href="index.html">About</a>
+        <a href="resources/index.html">Resources</a>
+        <a href="outplacement-support.html">Outplacement Support</a>
+        <a href="students.html">For Students</a>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Legal</h4>
+        <a href="terms.html">Terms of Use</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Social</h4>
+        <a href="https://www.linkedin.com/company/jobalchemist-ai/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
     </div>
-    <div class="footer-links">
-      <h4>Company</h4>
-      <a href="index.html">About</a>
-      <a href="resources/index.html">Resources</a>
-      <a href="outplacement-support.html">Outplacement Support</a>
-      <a href="terms.html">Terms of Use</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="https://www.linkedin.com/company/jobalchemist-ai/" target="_blank" rel="noreferrer">LinkedIn</a>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SVVS Limited. All rights reserved.</span>
+      <span>Made with <span class="heart">&#128153;</span> for job seekers everywhere.</span>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <span>&copy; 2026 SVVS Limited. All rights reserved.</span>
-    <span>Made with <span class="heart">&#128153;</span> for job seekers everywhere</span>
-  </div>
   </footer>
   <script src="script.js"></script>
 </body>
