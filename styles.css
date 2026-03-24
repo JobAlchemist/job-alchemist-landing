@@ -3175,3 +3175,472 @@ header .signup p#signup-message1 {
     display: none;
   }
 }
+
+/* -----------------------------------------------------------
+   Outplacement Support Page Refresh (March 2026, web-only)
+   Scoped to outplacement-support.html via .outplacement-page-v2
+   ----------------------------------------------------------- */
+.outplacement-page-v2 {
+  --op-navy: var(--secondary);
+  --op-navy-light: var(--primary-dark);
+  --op-proof-bg: #233f71;
+  --op-amber-bg: #fffbf5;
+  --op-amber-border: #e8d9b8;
+  --op-text: var(--text-strong);
+  --op-text-muted: var(--text-muted);
+  --op-border: var(--border-light);
+  --op-surface: var(--surface);
+  --op-max-width: 1100px;
+  --op-prose-width: 700px;
+  padding-top: 0;
+  background: var(--bg);
+}
+
+.outplacement-page-v2 .outplacement-content {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.outplacement-page-v2 .op-shell {
+  width: min(var(--op-max-width), calc(100% - 3rem));
+  margin: 0 auto;
+}
+
+.outplacement-page-v2 .op-prose {
+  max-width: var(--op-prose-width);
+}
+
+.outplacement-page-v2 .op-section {
+  padding: 2.4rem 0;
+}
+
+.outplacement-page-v2 .op-section-white {
+  background: #ffffff;
+}
+
+.outplacement-page-v2 .op-section-surface {
+  background: var(--op-surface);
+}
+
+.outplacement-page-v2 .op-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1200;
+  background: var(--bg);
+  border-bottom: 1px solid var(--op-border);
+  box-shadow: none;
+}
+
+.outplacement-page-v2 .op-nav .container {
+  max-width: var(--op-max-width);
+  height: 64px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: nowrap;
+}
+
+.outplacement-page-v2 .op-nav .logo {
+  margin-right: 0;
+}
+
+.outplacement-page-v2 .op-nav .logo img {
+  height: 32px;
+  width: auto;
+}
+
+.outplacement-page-v2 .label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--op-navy);
+  margin-bottom: 1rem;
+}
+
+.outplacement-page-v2 .op-hero {
+  padding: 3rem 0 2.75rem;
+  text-align: center;
+}
+
+.outplacement-page-v2 .op-hero h1 {
+  margin: 0;
+  max-width: 760px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  color: var(--op-navy);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.outplacement-page-v2 .op-hero .op-prose {
+  max-width: var(--op-prose-width);
+  margin-top: 1.3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.outplacement-page-v2 .op-hero p {
+  margin: 0;
+  color: var(--op-text-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.outplacement-page-v2 .op-hero p + p {
+  margin-top: 1rem;
+}
+
+.outplacement-page-v2 .op-hero .pricing-cta {
+  margin-top: 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.outplacement-page-v2 .op-proof-strip {
+  background: var(--op-proof-bg);
+  padding: 1.5rem 0;
+}
+
+.outplacement-page-v2 .op-proof-quote {
+  margin: 0;
+  max-width: var(--op-prose-width);
+  color: #ffffff;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.outplacement-page-v2 .op-proof-attribution {
+  margin: 0.65rem 0 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.outplacement-page-v2 h2 {
+  margin: 0;
+  color: var(--op-navy);
+  line-height: 1.3;
+}
+
+.outplacement-page-v2 .op-prose p {
+  margin: 1rem 0 0;
+  line-height: 1.7;
+  color: var(--op-text-muted);
+}
+
+.outplacement-page-v2 .op-section .op-prose {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.outplacement-page-v2 .op-section .label {
+  display: block;
+  text-align: center;
+}
+
+.outplacement-page-v2 .op-section h2 {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.outplacement-page-v2 .op-proof-strip .op-proof-attribution {
+  color: rgba(255, 255, 255, 0.92);
+  text-align: center;
+}
+
+.outplacement-page-v2 .pull-quote {
+  border-left: 3px solid var(--op-navy);
+  padding-left: 1.25rem;
+  margin: 2rem 0 0;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  max-width: var(--op-prose-width);
+  color: var(--op-text-muted);
+}
+
+.outplacement-page-v2 .op-steps-grid {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.outplacement-page-v2 .op-step-card {
+  background: var(--op-surface);
+  border: 1px solid var(--op-border);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.outplacement-page-v2 .op-step-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.7rem;
+}
+
+.outplacement-page-v2 .op-step-number {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 999px;
+  background: var(--op-navy);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.outplacement-page-v2 .op-step-card h3 {
+  margin: 0;
+  color: var(--op-text);
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.outplacement-page-v2 .op-step-card p {
+  margin: 0;
+  color: var(--op-text-muted);
+  line-height: 1.65;
+}
+
+.outplacement-page-v2 .privacy-callout {
+  background: var(--op-amber-bg);
+  border: 1px solid var(--op-amber-border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  max-width: none;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 2rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  box-shadow: none;
+}
+
+.outplacement-page-v2 .privacy-callout p {
+  margin: 0;
+  color: var(--op-text-muted);
+}
+
+.outplacement-page-v2 .op-hr-list {
+  max-width: var(--op-prose-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.3rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.outplacement-page-v2 .op-hr-item h3 {
+  margin: 0;
+  color: var(--op-text);
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.outplacement-page-v2 .op-hr-item p {
+  margin: 0.45rem 0 0;
+  color: var(--op-text-muted);
+  line-height: 1.7;
+}
+
+.outplacement-page-v2 .op-comparison-wrap {
+  max-width: var(--op-prose-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.4rem;
+  overflow-x: auto;
+}
+
+.outplacement-page-v2 .op-comparison-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--op-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.outplacement-page-v2 .op-comparison-table th,
+.outplacement-page-v2 .op-comparison-table td {
+  border: 1px solid var(--op-border);
+  padding: 0.8rem 0.9rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.outplacement-page-v2 .op-comparison-table th:first-child {
+  background: #e9edf2;
+  color: #6a7280;
+  font-weight: 600;
+}
+
+.outplacement-page-v2 .op-comparison-table th:nth-child(2) {
+  background: #edf1f6;
+  color: #5f708a;
+  font-weight: 600;
+}
+
+.outplacement-page-v2 .op-comparison-table th:last-child {
+  background: #eaf0fb;
+  color: var(--op-navy);
+  font-weight: 700;
+}
+
+.outplacement-page-v2 .op-comparison-table td:first-child {
+  color: #606b78;
+  font-weight: 600;
+}
+
+.outplacement-page-v2 .op-comparison-table tbody tr:nth-child(odd) td:first-child,
+.outplacement-page-v2 .op-comparison-table tbody tr:nth-child(odd) td:nth-child(2) {
+  background: #f3f5f8;
+}
+
+.outplacement-page-v2 .op-comparison-table tbody tr:nth-child(even) td:first-child,
+.outplacement-page-v2 .op-comparison-table tbody tr:nth-child(even) td:nth-child(2) {
+  background: #eceff3;
+}
+
+.outplacement-page-v2 .op-comparison-table tbody tr:nth-child(odd) td:last-child {
+  background: #f6f8ff;
+  color: var(--op-navy);
+}
+
+.outplacement-page-v2 .op-comparison-table tbody tr:nth-child(even) td:last-child {
+  background: #edf2ff;
+  color: var(--op-navy);
+}
+
+.outplacement-page-v2 .op-founder-note {
+  max-width: var(--op-prose-width);
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 1px solid var(--op-border);
+  padding-top: 1.25rem;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.outplacement-page-v2 .op-founder-note p {
+  margin: 0;
+  line-height: 1.78;
+  color: var(--op-text-muted);
+  font-size: 1.02rem;
+}
+
+.outplacement-page-v2 .op-founder-note p + p {
+  margin-top: 1.2rem;
+}
+
+.outplacement-page-v2 .op-founder-note .op-founder-attribution {
+  margin-top: 1.4rem;
+  font-size: 0.9rem;
+  color: var(--text-subtle);
+}
+
+.outplacement-page-v2 .op-founder-note a {
+  color: var(--op-navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.outplacement-page-v2 .op-final-cta {
+  background: var(--op-proof-bg);
+  color: #ffffff;
+  padding: 3.5rem 0;
+  text-align: center;
+}
+
+.outplacement-page-v2 .op-final-cta-inner {
+  max-width: 860px;
+}
+
+.outplacement-page-v2 .op-final-cta h2 {
+  margin: 0;
+  color: #ffffff;
+}
+
+.outplacement-page-v2 .op-final-cta p {
+  margin: 1rem auto 0;
+  max-width: 700px;
+  color: rgba(255, 255, 255, 0.84);
+  line-height: 1.7;
+}
+
+.outplacement-page-v2 .op-final-cta .op-consultant-note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.outplacement-page-v2 .op-final-cta .pricing-cta {
+  margin-top: 1.35rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.outplacement-page-v2 .op-prose .pricing-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.25rem;
+}
+
+.outplacement-page-v2 .op-prose .pricing-cta.op-centered-cta {
+  display: flex;
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.outplacement-page-v2 footer {
+  background-color: var(--surface);
+}
+
+@media (max-width: 900px) {
+  .outplacement-page-v2 .op-steps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .outplacement-page-v2 .op-shell {
+    width: calc(100% - 2rem);
+  }
+
+  .outplacement-page-v2 .op-nav .container {
+    padding: 0 1rem;
+  }
+
+  .outplacement-page-v2 .op-hero {
+    padding-top: 2.35rem;
+  }
+
+  .outplacement-page-v2 .op-proof-strip {
+    padding: 1.5rem 0;
+  }
+
+  .outplacement-page-v2 .op-section {
+    padding: 2rem 0;
+  }
+
+  .outplacement-page-v2 .op-comparison-wrap {
+    margin-top: 1rem;
+  }
+}
