@@ -9,7 +9,8 @@ Use this guide when making content, SEO, UX, or structural updates so changes st
 - Static site only: HTML + CSS + vanilla JS.
 - No build step, no package manager, no framework.
 - Shared styles in `styles.css`.
-- Shared interactions in `script.js` (mobile nav + proof image modal).
+- `students.html` currently includes a large page-scoped inline `<style>` block; keep it in sync with `styles.css` and move reusable rules to `styles.css` when practical.
+- Shared interactions in `script.js` (mobile nav, proof image modal, testimonials carousel, and workflow tabs).
 - Assets live in `site-assests/` (intentional existing folder name; do not rename without full path migration).
 
 ## Core File Map
@@ -25,11 +26,12 @@ Use this guide when making content, SEO, UX, or structural updates so changes st
 ## Content and Brand Rules
 - English variant is AU/NZ (`en-NZ` in pages, AU/NZ spellings in copy).
 - Keep core positioning aligned with current messaging:
-  - "Apply with confidence, not guesswork."
-  - Product helps users analyse job ads, assess fit, and tailor CV/cover letter drafts.
+  - "Apply with clarity. Not hope."
+  - "Stop guessing whether you're good enough for the job. Find out."
+  - Product helps users analyse job ads, assess fit, and tailor CV/cover letter drafts with clear reasoning.
 - Preserve audience separation:
   - Main page: broad job seekers.
-  - `students.html`: student and early-career language/examples.
+  - `students.html`: student/early-career and educator/teacher language/examples.
   - `outplacement-support.html`: HR/employer tone and outcomes.
 
 ## SEO/AEO Baseline (All Public Pages)
@@ -60,9 +62,12 @@ When only editing existing content, update `lastmod`/`dateModified` where approp
 
 ## JS and UI Interaction Constraints
 - `script.js` currently supports:
-  - Mobile nav toggle (`.nav-toggle`, `.nav-menu`).
+  - Mobile nav toggle (`.nav-toggle`, `.nav-menu`, optional `.nav-panel` wrapper).
   - Proof image modal (`#image-modal`, `#image-modal-img`, `data-image-modal` attributes).
+  - Testimonials carousel (`.testimonials-carousel`, `.testimonial-dot`).
+  - Workflow tabs (`[data-workflow-tabs]`, `[data-workflow-tab]`, `[data-workflow-panel]`, `[data-workflow-dot]`).
 - If you add/modify proof image cards in `index.html` or `students.html`, keep modal data attributes and IDs intact.
+- If you add/modify workflow steps in `index.html` or `students.html`, keep tab/panel/dot counts aligned and data attributes intact.
 - Test desktop + mobile behavior after nav, modal, or layout edits.
 
 ## Analytics and Third-Party Includes
@@ -72,12 +77,14 @@ When only editing existing content, update `lastmod`/`dateModified` where approp
 
 ## Recommended Validation Workflow
 1. Review changed files for broken internal links and asset paths.
-2. For resource-page work, run:
+2. For metadata/date consistency checks, run:
+   - `powershell -ExecutionPolicy Bypass -File scripts/validate-metadata.ps1`
+3. For resource-page work, run:
    - `python3 .codex/skills/ja-resource-page-builder/scripts/validate_resource_page.py resources/*.html`
-3. Serve locally and manually verify:
+4. Serve locally and manually verify:
    - `python3 -m http.server 8000`
    - Check `index.html`, `students.html`, `outplacement-support.html`, `resources/index.html`.
-4. Confirm `sitemap.xml`, `robots.txt`, and `llms.txt` remain coherent.
+5. Confirm `sitemap.xml`, `robots.txt`, and `llms.txt` remain coherent.
 
 ## Repo-Specific Skill
 For planning or creating resource pages, use:

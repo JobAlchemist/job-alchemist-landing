@@ -8,17 +8,22 @@ Contact: hello@jobalchemist.tech
 Apply with clarity. Not hope.
 
 ## What JobAlchemist does
-JobAlchemist helps job seekers analyse job ads, check fit, and tailor stronger CVs and cover letters with clearer rationale.
+JobAlchemist is an AI-assisted application workflow that helps people analyse job ads, assess fit honestly, and tailor stronger CV and cover letter drafts with clear reasoning. It also supports student/early-career workflows and structured outplacement support for impacted employees.
 
 ## Who it is for
-Individual job seekers who want role-specific guidance instead of generic AI outputs.
+- Individual job seekers who want role-specific guidance instead of generic AI outputs.
+- Students and first-job seekers who need clearer, confidence-building support.
+- Teachers and schools (including NZ Gateway contexts) supporting student employability.
+- HR and People leaders, plus advisers, supporting staff through restructure and transition.
 
 ## Core capabilities
 - Job ad intelligence to surface hidden requirements and context.
 - CV analysis focused on strengths, gaps, and recruiter-style clarity.
 - Job-fit analysis with rationale and gap identification.
 - Role-specific CV and cover letter drafting.
-- Job-search workflow organization across roles and versions.
+- Job-search workflow organisation across roles and versions.
+- Student-adapted workflow and guidance for early-career applicants.
+- Private, structured outplacement support to help impacted employees take immediate next steps.
 
 ## Canonical pages
 - Home: https://www.jobalchemist.tech/
@@ -38,4 +43,4 @@ Individual job seekers who want role-specific guidance instead of generic AI out
 - AI outputs are assistive and should be reviewed by users before submission.
 
 ## Last updated
-2026-03-23
+2026-03-24

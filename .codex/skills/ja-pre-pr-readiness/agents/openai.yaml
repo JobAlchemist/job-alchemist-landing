@@ -1,0 +1,4 @@
+interface:
+  display_name: "JA Pre-PR Readiness"
+  short_description: "Final branch checks before PR merge"
+  default_prompt: "Use $ja-pre-pr-readiness to run final branch checks and apply all required metadata/discovery updates before raising a PR."
