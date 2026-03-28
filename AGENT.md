@@ -15,6 +15,7 @@ Use this guide when making content, SEO, UX, or structural updates so changes st
 
 ## Core File Map
 - `index.html`: Main product landing page (general job seekers).
+- `about.html`: Company background and product philosophy page.
 - `students.html`: Student/first-job audience landing page.
 - `outplacement-support.html`: HR/people leader outplacement page.
 - `outplacement-support-print.html`: Print-friendly outplacement flyer (`noindex`).
