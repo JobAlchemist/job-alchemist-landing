@@ -27,6 +27,7 @@ JobAlchemist is an AI-assisted application workflow that helps people analyse jo
 
 ## Canonical pages
 - Home: https://www.jobalchemist.tech/
+- About: https://www.jobalchemist.tech/about.html
 - Resources: https://www.jobalchemist.tech/resources/
 - How to analyse a job ad: https://www.jobalchemist.tech/resources/how-to-analyse-job-ad.html
 - How to improve CV for ATS: https://www.jobalchemist.tech/resources/how-to-improve-cv-for-ats.html
@@ -43,4 +44,4 @@ JobAlchemist is an AI-assisted application workflow that helps people analyse jo
 - AI outputs are assistive and should be reviewed by users before submission.
 
 ## Last updated
-2026-03-24
+2026-03-28
