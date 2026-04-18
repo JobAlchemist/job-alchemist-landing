@@ -67,7 +67,7 @@ When only editing existing content, update `lastmod`/`dateModified` where approp
   - Proof image modal (`#image-modal`, `#image-modal-img`, `data-image-modal` attributes).
   - Testimonials carousel (`.testimonials-carousel`, `.testimonial-dot`).
   - Workflow tabs (`[data-workflow-tabs]`, `[data-workflow-tab]`, `[data-workflow-panel]`, `[data-workflow-dot]`).
-- If you add/modify proof image cards in `index.html` or `students.html`, keep modal data attributes and IDs intact.
+- If you add/modify proof image cards in `index.html`, `students.html`, or `outplacement-support.html`, keep modal data attributes and IDs intact.
 - If you add/modify workflow steps in `index.html` or `students.html`, keep tab/panel/dot counts aligned and data attributes intact.
 - Test desktop + mobile behavior after nav, modal, or layout edits.
 
