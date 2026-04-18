@@ -44,4 +44,4 @@ JobAlchemist is an AI-assisted application workflow that helps people analyse jo
 - AI outputs are assistive and should be reviewed by users before submission.
 
 ## Last updated
-2026-03-28
+2026-04-18
