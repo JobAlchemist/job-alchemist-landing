@@ -2159,16 +2159,29 @@ header .signup p#signup-message1 {
 
 .landing-page .hero-main {
   background: var(--bg);
-  text-align: center;
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 2.7rem 0 1rem;
+  padding: 2.7rem 0 1.2rem;
 }
 
 .landing-page .hero-main .hero-inner {
-  width: min(980px, calc(100% - 2rem));
+  width: min(1180px, calc(100% - 2rem));
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(360px, 1.12fr);
+  grid-template-areas:
+    "copy visual"
+    "actions actions";
+  align-items: start;
+  column-gap: clamp(1.4rem, 3vw, 3rem);
+  row-gap: 1.2rem;
+}
+
+.landing-page .hero-copy {
+  grid-area: copy;
+  min-width: 0;
+  text-align: left;
 }
 
 .landing-page .hero-main h1 {
@@ -2179,15 +2192,19 @@ header .signup p#signup-message1 {
 }
 
 .landing-page .hero-main p {
-  margin: 1rem auto 0;
+  margin: 1rem 0 0;
   max-width: 760px;
   line-height: 1.65;
   color: var(--text-muted);
 }
 
 .landing-page .hero-main .signup {
-  margin-top: 1.5rem;
-  margin-bottom: 0.6rem;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: none;
 }
 
 .landing-page .hero-main .pricing-cta {
@@ -2195,15 +2212,66 @@ header .signup p#signup-message1 {
 }
 
 .landing-page .hero-main .hero-microcopy {
-  margin-top: 0.7rem;
+  margin: 0.6rem 0 0;
   font-size: 0.95rem;
+  line-height: 1.45;
+  text-align: center;
 }
 
 .landing-page .hero-main .hero-social-proof {
-  margin-top: 0.7rem;
+  margin: 0.45rem 0 0;
   font-size: 0.95rem;
+  line-height: 1.45;
   font-weight: 400;
   color: var(--text-muted);
+  text-align: center;
+}
+
+.landing-page .hero-actions {
+  grid-area: actions;
+  display: block;
+  width: min(980px, 100%);
+  margin: 0 auto;
+}
+
+.landing-page .hero-action-primary {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.landing-page .hero-action-primary .hero-microcopy,
+.landing-page .hero-action-primary .hero-social-proof {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.landing-page .hero-visual,
+.landing-page .problem-visual,
+.landing-page .workflow-visual {
+  margin: 0;
+}
+
+.landing-page .hero-visual {
+  grid-area: visual;
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(20, 34, 61, 0.16);
+  margin-top: clamp(1.7rem, 4vw, 4rem);
+}
+
+.landing-page .hero-visual img,
+.landing-page .problem-visual img,
+.landing-page .workflow-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.landing-page .hero-visual img {
+  aspect-ratio: 1823 / 863;
+  object-fit: cover;
 }
 
 .landing-page .proof-strip {
@@ -2283,6 +2351,7 @@ header .signup p#signup-message1 {
 .landing-page .faq-section,
 .landing-page .cta-close-section {
   padding: 2.4rem 0;
+  scroll-margin-top: 92px;
 }
 
 .landing-page .problem-section h2,
@@ -2307,7 +2376,19 @@ header .signup p#signup-message1 {
 }
 
 .landing-page .problem-section .section-inner {
-  max-width: 920px;
+  max-width: 1100px;
+}
+
+.landing-page .problem-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(340px, 1.05fr);
+  align-items: center;
+  gap: clamp(1.4rem, 4vw, 3.2rem);
+  margin-top: 1.35rem;
+}
+
+.landing-page .problem-copy {
+  min-width: 0;
 }
 
 .landing-page .problem-section p {
@@ -2336,6 +2417,17 @@ header .signup p#signup-message1 {
   font-size: 1rem;
   font-weight: 400;
   color: var(--text-muted);
+}
+
+.landing-page .problem-visual {
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 16px 34px rgba(20, 34, 61, 0.14);
+}
+
+.landing-page .problem-visual img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
 }
 
 /* About page */
@@ -2384,7 +2476,7 @@ header .signup p#signup-message1 {
 }
 
 .landing-page .workflow-section .section-inner {
-  max-width: 920px;
+  max-width: 1060px;
 }
 
 .landing-page .section-subheading {
@@ -2395,9 +2487,22 @@ header .signup p#signup-message1 {
 }
 
 .landing-page .workflow-tabs-wrap {
-  margin-top: 1.1rem;
+  margin-top: 1.25rem;
   width: 100%;
   max-width: 100%;
+}
+
+.landing-page .workflow-visual {
+  width: min(940px, 100%);
+  margin: 1.45rem auto 0;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(20, 34, 61, 0.16);
+}
+
+.landing-page .workflow-visual img {
+  aspect-ratio: 1673 / 940;
+  object-fit: cover;
 }
 
 .landing-page .workflow-mobile-meta,
@@ -2978,6 +3083,43 @@ header .signup p#signup-message1 {
 }
 
 @media (max-width: 1024px) {
+  .landing-page .hero-main .hero-inner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "actions"
+      "visual";
+  }
+
+  .landing-page .problem-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-page .hero-copy {
+    text-align: center;
+  }
+
+  .landing-page .hero-main p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .landing-page .hero-visual {
+    width: min(780px, 100%);
+    margin: 0 auto;
+  }
+
+  .landing-page .hero-actions {
+    grid-template-columns: 1fr;
+    width: min(760px, 100%);
+    margin-top: 0.15rem;
+  }
+
+  .landing-page .problem-visual {
+    width: min(760px, 100%);
+    margin: 0 auto;
+  }
+
   .landing-page .audience-grid {
     grid-template-columns: 1fr;
   }
@@ -3047,6 +3189,27 @@ header .signup p#signup-message1 {
 
   .landing-page .hero-main {
     padding-top: 2rem;
+  }
+
+  .landing-page .hero-main .hero-inner {
+    gap: 1.25rem;
+  }
+
+  .landing-page .hero-visual,
+  .landing-page .problem-visual,
+  .landing-page .workflow-visual {
+    border-radius: 14px;
+    box-shadow: 0 10px 24px rgba(20, 34, 61, 0.13);
+  }
+
+  .landing-page .hero-visual img {
+    aspect-ratio: 4 / 3;
+    object-position: 58% center;
+  }
+
+  .landing-page .problem-grid {
+    margin-top: 1rem;
+    gap: 1.1rem;
   }
 
   .landing-page .workflow-tab {
