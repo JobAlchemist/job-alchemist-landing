@@ -1,5 +1,9 @@
 # JobAlchemist Landing Page - GitHub Pages Version
 
+October 2026: this site is being prepared for closure at the end of Friday 23 October NZDT. See [shutdown release instructions](docs/shutdown-release.md) and [work packet](docs/shutdown-work-packet.md). The overview below describes the historical marketing site.
+
+Preview current changes locally with `python3 -m http.server 8000 --bind 127.0.0.1` and open `http://127.0.0.1:8000/`. Refresh after edits. This does not publish changes.
+
 This is a static HTML/CSS/JavaScript version of the JobAlchemist landing page, designed to be easily hosted on GitHub Pages.
 
 ## Overview
