@@ -34,7 +34,7 @@ for p in list(out.glob('*.html')) + list((out / 'resources').glob('*.html')):
     s = re.sub(r'<li>\s*</li>', '', s)
     # These anchors disappear when the promotional homepage is replaced.
     s = re.sub(r'href="(?:\.\./)?index\.html#(?:how-it-works|see-it-in-action|pricing)"', lambda m: m[0].split('#')[0]+'"', s)
-    s = s.replace('JobAlchemist closes at the end of Friday 23 October 2026 (NZDT). Closed to new users. Existing users can save their work and email us for support.', 'JobAlchemist closed at the end of Friday 23 October 2026 (NZDT). Email hello@jobalchemist.tech for help accessing saved work.')
+    s = s.replace('JobAlchemist closes at the end of Friday 23 October 2026 (NZDT). Closed to new users. Existing users should save any materials they wish to keep before closure.', 'JobAlchemist closed at the end of Friday 23 October 2026 (NZDT). Email hello@jobalchemist.tech for help accessing saved work.')
     s = re.sub(r'(<lastmod>).*?(</lastmod>)', r'\g<1>2026-10-24\2', s)
     s = s.replace('2026-10-16T00:00:00+13:00', '2026-10-24T00:00:00+13:00')
     s = s.replace('"dateModified": "2026-10-16"', '"dateModified": "2026-10-24"')
