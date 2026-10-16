@@ -4131,3 +4131,21 @@ header .signup p#signup-message1 {
     padding-left: 1.1rem;
   }
 }
+
+/* Shutdown notices are static HTML so they remain visible without JavaScript. */
+body[data-closure-phase] { padding-top: 0; }
+body[data-closure-phase] > .navbar { position: relative; top: auto; }
+.closure-notice { background: #fff6e5; border-block: 1px solid #d6b56d; padding: 1.5rem 1.25rem; color: #382c16; }
+.closure-notice-inner { max-width: 1100px; margin: 0 auto; }
+.closure-notice .closure-eyebrow { margin: 0 0 .35rem; font-size: .78rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+.closure-notice h2 { margin: 0 0 .65rem; color: #382c16; font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.25; }
+.closure-notice p { margin: .45rem 0; line-height: 1.6; }
+.closure-notice a { color: #694400; text-decoration: underline; overflow-wrap: anywhere; }
+.closure-notice .closure-context { font-size: .9rem; }
+.closure-notice a:focus-visible { outline: 3px solid #694400; outline-offset: 3px; }
+body[data-closure-phase] .legal-content { padding-top: 2rem; }
+.closed-home { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 8vw, 5rem) 1.5rem; }
+.closed-home h1 { font-size: clamp(2rem, 6vw, 3.25rem); line-height: 1.15; }
+.closed-home p { line-height: 1.7; }
+.closed-home img { width: 180px; max-width: 100%; }
+.closed-home nav { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 2rem; }

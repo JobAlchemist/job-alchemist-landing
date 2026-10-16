@@ -1,8 +1,11 @@
-﻿# JobAlchemist
+# JobAlchemist
 
 Official website: https://www.jobalchemist.tech/
-Product app: https://app.jobalchemist.tech/
+Existing-user login (until closure): https://app.jobalchemist.tech/login
 Contact: hello@jobalchemist.tech
+
+## Closure status
+JobAlchemist closes at the end of Friday 23 October 2026 (NZDT), at 00:00 Saturday 24 October NZDT (23 October 11:00 UTC). No new users, plans, school access or outplacement engagements are accepted. Product descriptions below are retained for reference. Please save materials before closure; email hello@jobalchemist.tech for assistance, including after closure. No fixed public export-support deadline is announced.
 
 ## Tagline
 Apply with clarity. Not hope.
@@ -44,4 +47,4 @@ JobAlchemist is an AI-assisted application workflow that helps people analyse jo
 - AI outputs are assistive and should be reviewed by users before submission.
 
 ## Last updated
-2026-06-30
+2026-10-16
