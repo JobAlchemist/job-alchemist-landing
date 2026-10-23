@@ -18,7 +18,7 @@ out.mkdir(parents=True)
 for name in ('styles.css', 'script.js', 'CNAME', 'robots.txt', 'sitemap.xml', 'llms.txt'):
     shutil.copy2(root / name, out / name)
 shutil.copytree(root / 'site-assests', out / 'site-assests')
-shutil.copytree(root / 'resources', out / 'resources')
+# Job-search resources were retired after closure; do not republish them.
 for p in root.glob('*.html'):
     shutil.copy2(p, out / p.name)
 for p in list(out.glob('*.html')) + list((out / 'resources').glob('*.html')):
@@ -63,7 +63,7 @@ head = '''<!DOCTYPE html>
 <p>JobAlchemist closed at the end of <strong>Friday 23 October 2026 (NZDT)</strong>. The application is no longer available.</p>
 <p>We appreciate everyone who used JA and shared their job-search journey with us.</p>
 <p>If you need help accessing your saved work, please email <a href="mailto:hello@jobalchemist.tech">hello@jobalchemist.tech</a>.</p>
-<nav aria-label="Further information"><a href="resources/">Job-search resources</a><a href="terms.html">Terms of Use</a><a href="privacy.html">Privacy Policy</a></nav>
+<nav aria-label="Further information"><a href="terms.html">Terms of Use</a><a href="privacy.html">Privacy Policy</a></nav>
 </main></body></html>
 '''
 (out / 'index.html').write_text(head)

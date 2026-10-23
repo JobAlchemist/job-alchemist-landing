@@ -4,7 +4,7 @@
 
 ### Shutdown work (October 2026)
 
-JobAlchemist closed at the end of Friday 23 October 2026 NZDT (00:00 Saturday 24 October; 23 October 11:00 UTC). The closure notice takes precedence over the historical positioning rules below. Preserve descriptive/pricing copy with closure context and remove acquisition CTAs. The post-closure site is now the release state: no application login links or PostHog. Keep policy/resource pages accessible. Support is `hello@jobalchemist.tech`; do not invent a public deletion or export-request deadline.
+JobAlchemist closed at the end of Friday 23 October 2026 NZDT (00:00 Saturday 24 October; 23 October 11:00 UTC). The closure notice takes precedence over the historical positioning rules below. Preserve descriptive/pricing copy with closure context and remove acquisition CTAs. The post-closure site is now the release state: no application login links or PostHog. Keep policy pages accessible. Job-search resources were removed at the owner’s request on 24 October 2026; do not recreate or republish them. Support is `hello@jobalchemist.tech`; do not invent a public deletion or export-request deadline.
 
 See `docs/shutdown-work-packet.md` and `docs/shutdown-release.md`. Generate the separate post-closure preview with `scripts/prepare-post-closure.py --output /tmp/ja-post-closure-NEW`. Never generate it into this checkout or deploy it before cutoff. PostHog removal at closure is intentional. Notices are static HTML, with shared rules at the end of `styles.css`. Navigation is in normal document flow during shutdown so notices remain unobscured.
 This repository hosts the production static website for JobAlchemist (`https://www.jobalchemist.tech`) on GitHub Pages.
@@ -25,8 +25,7 @@ Use this guide when making content, SEO, UX, or structural updates so changes st
 - `students.html`: Student/first-job audience landing page.
 - `outplacement-support.html`: HR/people leader outplacement page.
 - `outplacement-support-print.html`: Historical print flyer reference; file is absent in this checkout.
-- `resources/index.html`: Resources hub.
-- `resources/*.html`: SEO/AEO resource pages.
+- `resources/`: Removed from the published site; historical versions remain in Git.
 - `terms.html`, `privacy.html`: Policy pages.
 - `sitemap.xml`, `robots.txt`, `llms.txt`, `CNAME`: Discovery/domain files.
 
@@ -51,7 +50,9 @@ Use this guide when making content, SEO, UX, or structural updates so changes st
   - JSON-LD `dateModified`.
   - `og:updated_time` on pages that already use it.
 
-## Internal Linking Expectations
+## Historical Internal Linking Expectations
+
+The resource-page requirements below apply only if resource publishing is explicitly resumed; resources are currently retired.
 - Resource pages should include:
   - Link to `../index.html`.
   - Link to relevant audience page(s): `../students.html` and/or `../outplacement-support.html`.

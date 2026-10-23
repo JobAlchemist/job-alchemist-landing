@@ -174,3 +174,7 @@ Retain the original “Login” label on pre-closure navigation links. The closu
 ## Post-closure cutover — 24 October 2026
 
 The user authorised publishing the post-closure site. Generated from the latest main; the working tree now contains the minimal homepage, closed notices, support email and retained resource/policy pages. Application links and PostHog are removed. Production deployment and live verification are being completed through the GitHub Pages release process.
+
+## Resource retirement — user revision, 24 October 2026
+
+Remove the resource hub and all four job-search articles from the public site, links and discovery files. Keep the closure homepage, support address and policy pages. Update the generator to avoid republishing resources. This supersedes prior retained-resource acceptance criteria.
