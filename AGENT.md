@@ -4,7 +4,7 @@
 
 ### Shutdown work (October 2026)
 
-JobAlchemist closes at the end of Friday 23 October 2026 NZDT (00:00 Saturday 24 October; 23 October 11:00 UTC). The closure notice takes precedence over the historical positioning rules below. Preserve descriptive/pricing copy with closure context and remove acquisition CTAs. Keep existing-user login until cutover and keep policy/resource pages accessible. Support is `hello@jobalchemist.tech`; do not invent a public deletion or export-request deadline.
+JobAlchemist closed at the end of Friday 23 October 2026 NZDT (00:00 Saturday 24 October; 23 October 11:00 UTC). The closure notice takes precedence over the historical positioning rules below. Preserve descriptive/pricing copy with closure context and remove acquisition CTAs. The post-closure site is now the release state: no application login links or PostHog. Keep policy/resource pages accessible. Support is `hello@jobalchemist.tech`; do not invent a public deletion or export-request deadline.
 
 See `docs/shutdown-work-packet.md` and `docs/shutdown-release.md`. Generate the separate post-closure preview with `scripts/prepare-post-closure.py --output /tmp/ja-post-closure-NEW`. Never generate it into this checkout or deploy it before cutoff. PostHog removal at closure is intentional. Notices are static HTML, with shared rules at the end of `styles.css`. Navigation is in normal document flow during shutdown so notices remain unobscured.
 This repository hosts the production static website for JobAlchemist (`https://www.jobalchemist.tech`) on GitHub Pages.
@@ -20,7 +20,7 @@ Use this guide when making content, SEO, UX, or structural updates so changes st
 - Assets live in `site-assests/` (intentional existing folder name; do not rename without full path migration).
 
 ## Core File Map
-- `index.html`: Main product landing page (general job seekers).
+- `index.html`: Minimal post-closure homepage with support contact and resource/policy navigation.
 - `about.html`: Company background and product philosophy page.
 - `students.html`: Student/first-job audience landing page.
 - `outplacement-support.html`: HR/people leader outplacement page.
@@ -78,7 +78,7 @@ When only editing existing content, update `lastmod`/`dateModified` where approp
 - Test desktop + mobile behavior after nav, modal, or layout edits.
 
 ## Analytics and Third-Party Includes
-- `index.html`, `students.html` and `about.html` include PostHog before closure; the post-closure generator removes it.
+- PostHog was removed from the public site at closure; do not restore it.
 - Bootstrap Icons CDN is used in key pages.
 - Do not remove tracking/scripts unintentionally during content edits.
 

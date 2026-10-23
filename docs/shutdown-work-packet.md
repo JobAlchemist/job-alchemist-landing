@@ -170,3 +170,7 @@ The pre-closure notice now contains only the closure heading, date/new-user stat
 ## Login label — user revision
 
 Retain the original “Login” label on pre-closure navigation links. The closure notice provides the new-user restriction; additional button wording is unnecessary. Remove login links at post-closure cutover as planned.
+
+## Post-closure cutover — 24 October 2026
+
+The user authorised publishing the post-closure site. Generated from the latest main; the working tree now contains the minimal homepage, closed notices, support email and retained resource/policy pages. Application links and PostHog are removed. Production deployment and live verification are being completed through the GitHub Pages release process.

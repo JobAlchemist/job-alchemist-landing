@@ -1,10 +1,10 @@
 # Shutdown release handoff
 
-Prepared 16 October 2026. Both versions are local; nothing has been published.
+Prepared 16 October 2026; cutover prepared on 24 October 2026. Pre-closure changes were published through PR #15. This release replaces the homepage with the approved closure page and updates retained pages to closed status.
 
-## Current pre-closure version
+## Previous pre-closure version
 
-The working tree contains static closure notices on all 11 public HTML pages, no acquisition CTAs, retained descriptive/pricing copy, and existing-user login links. Metadata and discovery files reflect closure. Terms and privacy text remain intact. PostHog remains until closure.
+The pre-closure release contained static closure notices on all 11 public HTML pages, no acquisition CTAs, retained descriptive/pricing copy, and existing-user login links. Metadata and discovery files reflect closure. Terms and privacy text remain intact. PostHog remains until closure.
 
 Preview at http://127.0.0.1:8000/ using:
 
@@ -47,3 +47,10 @@ Do not delete customer data during this site cutover. The existing terms discuss
 - Browser checks: pre/post homepages at 390px mobile and 1280px desktop; student desktop layout; outplacement/resource notice content; post-closure about notice; mobile navigation, workflow controls and proof-image modal.
 
 No new marketing 404 page is included: all existing public page URLs are retained. Unknown paths continue to use the host's normal 404 behavior.
+
+## Cutover record — 24 October 2026
+
+- Generated the approved post-closure site from the latest `origin/main` and applied public files to `codex/post-closure-site`.
+- Confirmed GitHub Pages publishes from the root of `main`.
+- Retained resource/policy URLs, support email, assets and domain configuration. Removed application links and PostHog; no customer-data or infrastructure deletion.
+- Deployment and live-verification outcomes are recorded in the closure release PR. Application shutdown remains outside this repository.

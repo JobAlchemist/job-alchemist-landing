@@ -40,7 +40,7 @@ for p in list(out.glob('*.html')) + list((out / 'resources').glob('*.html')):
     s = s.replace('"dateModified": "2026-10-16"', '"dateModified": "2026-10-24"')
     # The retired application is no longer an organization identity link.
     s = re.sub(r',?\s*"https://app\.jobalchemist\.tech"\s*,?', '', s)
-    p.write_text(s)
+    p.write_text("\n".join(line.rstrip() for line in s.splitlines()) + "\n")
 
 head = '''<!DOCTYPE html>
 <html lang="en-NZ"><head>
@@ -56,7 +56,7 @@ head = '''<!DOCTYPE html>
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="JobAlchemist has closed">
 <meta name="twitter:description" content="Thank you for using JobAlchemist. Contact us for help accessing saved work.">
 <meta name="twitter:image" content="https://www.jobalchemist.tech/site-assests/JobAlchemist-unfurl-main-image.png">
-<link rel="icon" href="site-assests/ja-favicon.png"><link rel="stylesheet" href="styles.css">
+<link rel="icon" href="site-assests/ja-favicon.png"><link rel="stylesheet" href="styles.css?v=20261024">
 </head><body data-closure-phase="after"><main class="closed-home">
 <img src="site-assests/email_logo.svg" alt="JobAlchemist">
 <h1>Thank you for being part of JobAlchemist.</h1>
