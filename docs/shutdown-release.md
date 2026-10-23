@@ -54,3 +54,7 @@ No new marketing 404 page is included: all existing public page URLs are retaine
 - Confirmed GitHub Pages publishes from the root of `main`.
 - Retained resource/policy URLs, support email, assets and domain configuration. Removed application links and PostHog; no customer-data or infrastructure deletion.
 - Deployment and live-verification outcomes are recorded in the closure release PR. Application shutdown remains outside this repository.
+
+## Resource retirement — 24 October 2026
+
+The owner requested removal of all job-search resources after reviewing the closure site. Remove the resource hub and four articles from published files, navigation, sitemap and llms.txt. Existing article URLs should return HTTP 404. The generator must not restore them. Keep the closure homepage, support contact and policies available. This supersedes earlier instructions to retain resources. Historical source remains recoverable from Git.
